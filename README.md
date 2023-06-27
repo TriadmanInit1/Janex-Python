@@ -13,7 +13,7 @@ Released under the GNU General License Version 3.0, Janex will improve and becom
 
 <h4> **Version 1.0.0 **</h4>
 
-- Word tokenizer
-- Intent classifier
-- Language Model Builder
-- Support for Darwin, Unix-like and Windows
+- Word tokenizer ✓
+- Intent classifier ✓
+- Language Model Builder (TBD)
+- Support for Darwin, Unix-like and Windows ✓

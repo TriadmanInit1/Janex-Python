@@ -1,13 +1,16 @@
-
-BagOfWords = []
+import string
 
 def Tokenize(input_string):
-    Words = input_string.split()
-    BagOfWords.append(Words)
-    return BagOfWords
+    input_string = input_string.strip()
+    
+    input_string = input_string.translate(str.maketrans("", "", string.punctuation))
+    
+    words = input_string.split()
+    
+    return words
 
 input_string = input("You: ")
 
-Output = Tokenize(input_string)
+output = Tokenize(input_string)
 
-print(Output)
+print(output)
