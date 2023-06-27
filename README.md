@@ -11,7 +11,7 @@ Released under the GNU General License Version 3.0, Janex will improve and becom
 
 <h3> Functionality </h3>
 
-<h4>Version 1.0.0</h4>
+<h4>Version 0.0.1</h4>
 
 - Word tokenizer ✓
 - Intent classifier ✓
