@@ -8,3 +8,12 @@ Billionaire companies are confining their Artificial Intelligence research to th
 These businesses go on to share their privatised research with governments, but rarely with the public. As such, my aim is to create a framework that you can use to easily construct your own language models, and other machine learning algorithms, as I believe this power should not be held firmly in the hands of corrupt rich politicians and advantaged capitalists.
 
 Released under the GNU General License Version 3.0, Janex will improve and become a useful tool for users to construct their own research in the potential of Artifical Intelligence.
+
+<h3> Functionality </h3>
+
+<h4> **Version 1.0.0 **</h4>
+
+- Word tokenizer
+- Intent classifier
+- Language Model Builder
+- Support for Darwin, Unix-like and Windows
