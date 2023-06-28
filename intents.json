@@ -1,0 +1,22 @@
+{"intents": [
+{"tag": "greeting", "patterns": ["Hello", "hi", "hey", "hello", "what's up", "hey", "good morning"], "responses": ["Hey there, how can I help you today?", "Hello, how can I assist you?"]},
+{"tag": "goodbye", "patterns": ["bye", "see you later", "see you in a bit", "later", "bye bye", "goodbye"], "responses": ["Goodbye for now. I'll be online should you require me again.", "Farewell, I shall remain online until you need me next."]},
+{"tag": "username", "patterns": ["what is my name?", "what's my name", "who am I?", "do you know me?", "am I known to you?", "do you recognise me?"], "responses": [" ", " "]},
+{"tag": "open-amazon", "patterns": ["Open Amazon.", "Load up Amazon.", "Bring up Amazon", "Go onto Amazon"], "responses": ["Sure thing, opening Amazon now. Is there anything specific you're looking for?", "Sure thing.", "As you wish."]},
+{"tag": "open-iplayer", "patterns": ["Open BBC iPlayer", "Open iPlayer", "Load iPlayer", "BBC iPlayer", "Bring up BBC iPlayer"], "responses": ["As you wish.", "Sure thing.", "Absolutely, opening BBC iPlayer for you now."]},
+{"tag": "open-disney+", "patterns": ["Open Disney Plus", "Open Disney+", "Load up Disney", "Disney Plus", "Bring up Disney Plus", "Load up Disney Plus", "Disney+", "Open Disney"], "responses": ["As you wish.", "Sure thing.", "Of course, opening Disney Plus for you now."]},
+{"tag": "clear-cache", "patterns": ["clear cash", "clear up the cash", "Clear cache", "Start clearing", "Clear out the cache", "empty cache", "Empty cache"], "responses": ["Clearing cache.", "One moment.", "Yes."]},
+{"tag": "light-on", "patterns": ["turn light on", "turn my light on", "light on", "turn on light", "let there be light", "on light"], "responses": ["Light activated", "Sure.", "Lighting on."]},
+{"tag": "light-off", "patterns": ["turn light off", "light off", "turn my light off", "kill the light", "lights out", "turn off the light", "let there be darkness", "it's too bright in here", "off light", "kill the light", "kill power"], "responses": ["Light deactivated", "Sure.", "Lighting off.", "Electric bill saved."]},
+{"tag": "sky-pause-play", "patterns": ["Pause the TV.", "TV Pause", "pause tv", "pause the tv", "Play the TV.", "TV Play", "play tv", "play the tv", "resume tv", "resume the tv"], "responses": ["Command sent.", "I have sent the command."]},
+{"tag": "sky-power", "patterns": ["Turn off the TV.", "TV off", "turn off tv", "turn off the tv", "turn on the tv", "turn the tv on", "Turn the TV on", "Switch the TV on", "power on the tv"], "responses": ["Command sent.", "I have sent the command."]},
+{"tag": "search-google", "patterns": ["search Google for ", "search google for this", "look up for me", "look up this for me", "search google for this"], "responses": ["Done.", "No problem.", "Google search completed.", "Affirmative.", "Task completed."]},
+{"tag": "are-you-up", "patterns": ["are you up?", "are you online?", "are you ready?", "are you up and running?"], "responses": ["For you, always", "Yes, for you, always."]},
+{"tag": "gracious", "patterns": ["thank you", "thanks", "cheers", "thanking you", "great, thank you", "awesome, thank you"], "responses": ["You are welcome.", "You're welcome.", "Just doing my job.", "No problem", "De nada."]},
+{"tag": "incapable", "patterns": ["I am lonely", "I feel lonely", "I feel sad", "I am upset", "I am not happy", "I feel pain", "I hate my life"], "responses": ["My apologies, I'm afraid I cannot help with that. I suggest you contact another human.", "I am sorry, but I can't help you with that. Try talking to a fellow human."]},
+{"tag": "time", "patterns": ["What is the time?", "what's the time", "what's the current time?", "the time", "tell me the time", "timing"], "responses": ["The time is ", "It is currently ", "It is "]},
+{"tag": "word-doc", "patterns": ["Open a new word document.", "I want a new document.", "New word document.", "Create a new word document.", "New project file."], "responses": ["Certainly.", "One moment.", "As you wish."]},
+{"tag": "play-music", "patterns": ["Play music", "play music", "resume music", "drop my needle"], "responses": ["Music playing.", "As you wish."]},
+{"tag": "pause-music", "patterns": ["pause music", "stop music", "stop the music"], "responses": ["Music now paused.", "As you wish."]},
+{"tag": "atom", "patterns": ["new atom file", "new code", "new code script"], "responses": ["As you wish.", "Sure thing."]}
+]}

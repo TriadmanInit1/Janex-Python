@@ -23,7 +23,9 @@ def patterncompare(input_string, intents_file_path):
 
     with open(intents_file_path, 'r') as json_data:
         intents = json.load(json_data)
+
     BagOfWords = Tokenize(input_string)
+    
     for intent_class in intents['intents']:
         patterns = intent_class.get('patterns')
         for pattern in patterns:
