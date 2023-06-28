@@ -11,7 +11,7 @@ Released under the GNU General License Version 3.0, Janex will improve and becom
 
 <h3> How to use </h3>
 
-<h4> Adding to your project </h4>
+<h5> Adding to your project </h5>
 
 Firstly, clone the git repository to the local directory of your project.
 
