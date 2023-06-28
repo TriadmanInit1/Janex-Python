@@ -27,7 +27,7 @@ from Janex import Janex
 
 <h4>Using Janex in your code</h4>
 
-**Tokenizing:**
+<h5>Tokenizing:</h5>
 
 To utilise the tokenizer feature, here is an example of how it can be used.
 
@@ -38,16 +38,29 @@ words = Tokenize(input_string)
 
 print(words)
 ```
-**Intent classifying:**
+
+<h5>Intent classifying:</h5>
 
 To compare the input with the patterns from your intents.json storage file, you have to declare the intents file path.
 
 ```
 intents_file_path = "intents.json"
 
-Class = patterncompare(input_string, intents_file_path)
+intent_class = patterncompare(input_string, intents_file_path)
 
-print(Class)
+print(intent_class)
+```
+
+<h5>Response similarity:</h5>
+
+Sometimes a list of responses in a class can become varied in terms of context, and so in order to get the best possible response, we can use the 'responsecompare' function to compare the input string with your list of responses.
+
+```
+
+BestResponse = responsecompare(input_string, intents_file_path, intent_class)
+
+print(BestResponse)
+
 ```
 <h3> Functionality </h3>
 

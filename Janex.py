@@ -35,7 +35,7 @@ def patterncompare(input_string, intents_file_path):
             
             if Similarity > MaxSimilarity:
                 MaxSimilarity = Similarity
-                MostSimilarPattern = pattern
+                MostSimilarPattern = intent_class
     
     return MostSimilarPattern
 
