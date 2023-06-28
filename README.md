@@ -16,6 +16,8 @@ Released under the GNU General License Version 3.0, Janex will improve and becom
 Firstly, clone the git repository to the local directory of your project.
 
 ```
+cd /path/to/your/project/directory
+
 gh repo clone Cipher58/Janex
 ```
 
