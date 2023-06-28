@@ -9,6 +9,46 @@ These businesses go on to share their privatised research with governments, but 
 
 Released under the GNU General License Version 3.0, Janex will improve and become a useful tool for users to conduct their own research in the potential of Artifical Intelligence.
 
+<h3> How to use </h3>
+
+<h4> Adding to your project </h4>
+
+Firstly, clone the git repository to the local directory of your project.
+
+```
+gh repo clone Cipher58/Janex
+```
+
+Secondly, import the Janex toolkit into your code by adding this line
+
+```
+from Janex import Janex
+```
+
+<h4>Using Janex in your code</h4>
+
+**Tokenizing:**
+
+To utilise the tokenizer feature, here is an example of how it can be used.
+
+```
+input_string = "Hello! What is your name?"
+
+words = Tokenize(input_string)
+
+print(words)
+```
+**Intent classifying:**
+
+To compare the input with the patterns from your intents.json storage file, you have to declare the intents file path.
+
+```
+intents_file_path = "intents.json"
+
+Class = patterncompare(input_string, intents_file_path)
+
+print(Class)
+```
 <h3> Functionality </h3>
 
 <h4>Version 0.0.1</h4>
