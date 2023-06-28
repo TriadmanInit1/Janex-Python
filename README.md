@@ -24,7 +24,7 @@ gh repo clone Cipher58/Janex
 Secondly, import the Janex toolkit into your code by adding this line
 
 ```
-from Janex import Janex
+from Janex.Janex import *
 ```
 
 <h4>Using Janex in your code</h4>
