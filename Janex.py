@@ -70,28 +70,26 @@ def responsecompare(input_string, intents_file_path, intent_class):
 
         for InputWord in BagOfWords:
             for OutputWord in WordList:
-#                print(InputWord)
-#                print(OutputWord)
                 if InputWord == OutputWord:
-                    Similarity = Similarity + 1
+                    Similarity += 1
                     print("Match found!")
 
+        OutofHundred = len(BagOfWords)  # Total number of words in the input
+        Hundred = len(BagOfWords + WordList)  # Total number of words in both input and pattern
+
+        SimilarityPercentage = (Similarity / Hundred) * 100  # Corrected calculation
+
+        print(f"Similarity: {SimilarityPercentage:.2f}%")
+        
         if Similarity > MaxSimilarity:
-            OutofHundred = len(input_string)
-            Hundred = len(BagOfWords + WordList)
-
-            SimilarityPercentage = OutofHundred/Hundred*100
-
-            print(f"Similarity: {SimilarityPercentage:.2f}%")
             MaxSimilarity = Similarity
             MostSimilarResponse = response
-        
+    
     # Convert MSR back into original string
-
     for response in responses:
         lowresponse = response.lower()
-
         if lowresponse == MostSimilarResponse:
             MostSimilarResponse = response
     
     return MostSimilarResponse
+
