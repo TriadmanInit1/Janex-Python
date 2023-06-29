@@ -1,13 +1,13 @@
 import json
 import string
 
+class NoMatchingIntentError(Exception):
+    pass
+
 def Tokenize(input_string):
     input_string = input_string.strip()
-    
     input_string = input_string.translate(str.maketrans("", "", string.punctuation))
-    
     words = input_string.split()
-    
     return words
 
 def train(intents_file_path):
@@ -16,7 +16,7 @@ def train(intents_file_path):
 
 def patterncompare(input_string, intents_file_path):
     MaxSimilarity = 0
-    MostSimilarPattern = ""
+    MostSimilarPattern = None
 
     patterns = []
     Similarity = 0
@@ -25,25 +25,28 @@ def patterncompare(input_string, intents_file_path):
         intents = json.load(json_data)
 
     BagOfWords = Tokenize(input_string)
-    
+
     for intent_class in intents['intents']:
+        
         patterns = intent_class.get('patterns')
         for pattern in patterns:
             WordList = Tokenize(pattern)
-            for word in WordList:
-                if word in BagOfWords:
-                    Similarity = Similarity + 1
-                    print(Similarity)
-            
+            Similarity = len(set(BagOfWords) & set(WordList)) / len(set(BagOfWords + WordList))
+            SimilarityPercentage = Similarity * 100
+
             if Similarity > MaxSimilarity:
+                print(f"Similarity: {SimilarityPercentage:.2f}%")
                 MaxSimilarity = Similarity
                 MostSimilarPattern = intent_class
-    
-    return MostSimilarPattern
+
+    if MostSimilarPattern:
+        return MostSimilarPattern
+    else:
+        raise NoMatchingIntentError("No matching intent class found.")
 
 def responsecompare(input_string, intents_file_path, intent_class):
     MaxSimilarity = 0
-    MostSimilarResponse = ""
+    MostSimilarResponse = None
 
     responses = []
     Similarity = 0
@@ -52,21 +55,26 @@ def responsecompare(input_string, intents_file_path, intent_class):
         intents = json.load(json_data)
 
     BagOfWords = Tokenize(input_string)
-    
-    responses = intent_class.get('responses')
+
+    if intent_class is not None:
+        responses = intent_class.get('responses')
+    else:
+        raise NoMatchingIntentError("No matching intent class found.")
 
     for response in responses:
         WordList = Tokenize(response)
-        for word in WordList:
-            if word in BagOfWords:
-                Similarity = Similarity + 1
-                print(Similarity)
-            
+        Similarity = len(set(BagOfWords) & set(WordList)) / len(set(BagOfWords + WordList))
+        SimilarityPercentage = Similarity * 100
+
         if Similarity > MaxSimilarity:
+            print(f"Similarity: {SimilarityPercentage:.2f}%")
             MaxSimilarity = Similarity
             MostSimilarResponse = response
     
-    return MostSimilarResponse
+    if MostSimilarResponse:
 
+        return MostSimilarResponse
+    
+    else:
 
-
+        raise NoMatchingIntentError("No matching response found.")
