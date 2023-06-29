@@ -37,9 +37,13 @@ def patterncompare(input_string, intents_file_path):
             SimilarityPercentage = Similarity * 100
 
             if Similarity > MaxSimilarity:
-                print(f"Similarity: {SimilarityPercentage:.2f}%")
                 MaxSimilarity = Similarity
                 MostSimilarPattern = intent_class
+            
+            if SimilarityPercentage > 100:
+                SimilarityPercentage = SimilarityPercentage/100
+            
+    print(f"Similarity: {SimilarityPercentage:.2f}%")
 
     if MostSimilarPattern:
         return MostSimilarPattern
@@ -72,18 +76,21 @@ def responsecompare(input_string, intents_file_path, intent_class):
             for OutputWord in WordList:
                 if InputWord == OutputWord:
                     Similarity += 1
-                    print("Match found!")
+#                    print("Match found!")
 
         OutofHundred = len(BagOfWords)  # Total number of words in the input
         Hundred = len(BagOfWords + WordList)  # Total number of words in both input and pattern
 
         SimilarityPercentage = (Similarity / Hundred) * 100  # Corrected calculation
-
-        print(f"Similarity: {SimilarityPercentage:.2f}%")
         
         if Similarity > MaxSimilarity:
             MaxSimilarity = Similarity
             MostSimilarResponse = response
+        
+        if SimilarityPercentage > 100:
+            SimilarityPercentage = SimilarityPercentage/100
+        
+    print(f"Similarity: {SimilarityPercentage:.2f}%")
     
     # Convert MSR back into original string
     for response in responses:
