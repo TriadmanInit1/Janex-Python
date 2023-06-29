@@ -15,6 +15,7 @@ def train(intents_file_path):
         intents = json.load(json_data)
 
 def patterncompare(input_string, intents_file_path):
+    input_string = input_string.lower()
     MaxSimilarity = 0
     MostSimilarPattern = None
 
@@ -30,6 +31,7 @@ def patterncompare(input_string, intents_file_path):
         
         patterns = intent_class.get('patterns')
         for pattern in patterns:
+            pattern = pattern.lower()
             WordList = Tokenize(pattern)
             Similarity = len(set(BagOfWords) & set(WordList)) / len(set(BagOfWords + WordList))
             SimilarityPercentage = Similarity * 100
@@ -45,6 +47,7 @@ def patterncompare(input_string, intents_file_path):
         raise NoMatchingIntentError("No matching intent class found.")
 
 def responsecompare(input_string, intents_file_path, intent_class):
+    input_string = input_string.lower()
     MaxSimilarity = 0
     MostSimilarResponse = None
 
@@ -62,19 +65,33 @@ def responsecompare(input_string, intents_file_path, intent_class):
         raise NoMatchingIntentError("No matching intent class found.")
 
     for response in responses:
+        response = response.lower()
         WordList = Tokenize(response)
-        Similarity = len(set(BagOfWords) & set(WordList)) / len(set(BagOfWords + WordList))
-        SimilarityPercentage = Similarity * 100
+
+        for InputWord in BagOfWords:
+            for OutputWord in WordList:
+#                print(InputWord)
+#                print(OutputWord)
+                if InputWord == OutputWord:
+                    Similarity = Similarity + 1
+                    print("Match found!")
 
         if Similarity > MaxSimilarity:
+            OutofHundred = len(input_string)
+            Hundred = len(BagOfWords + WordList)
+
+            SimilarityPercentage = OutofHundred/Hundred*100
+
             print(f"Similarity: {SimilarityPercentage:.2f}%")
             MaxSimilarity = Similarity
             MostSimilarResponse = response
-    
-    if MostSimilarResponse:
+        
+    # Convert MSR back into original string
 
-        return MostSimilarResponse
-    
-    else:
+    for response in responses:
+        lowresponse = response.lower()
 
-        raise NoMatchingIntentError("No matching response found.")
+        if lowresponse == MostSimilarResponse:
+            MostSimilarResponse = response
+    
+    return MostSimilarResponse
