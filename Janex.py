@@ -18,6 +18,7 @@ def patterncompare(input_string, intents_file_path):
     input_string = input_string.lower()
     MaxSimilarity = 0
     MostSimilarPattern = None
+    SimilarityPercentage = 0
 
     patterns = []
     Similarity = 0
@@ -28,21 +29,19 @@ def patterncompare(input_string, intents_file_path):
     BagOfWords = Tokenize(input_string)
 
     for intent_class in intents['intents']:
-        
+
         patterns = intent_class.get('patterns')
         for pattern in patterns:
+            Similarity = 0
             pattern = pattern.lower()
             WordList = Tokenize(pattern)
             Similarity = len(set(BagOfWords) & set(WordList)) / len(set(BagOfWords + WordList))
-            SimilarityPercentage = Similarity * 100
 
             if Similarity > MaxSimilarity:
+                SimilarityPercentage = Similarity * 100
                 MaxSimilarity = Similarity
                 MostSimilarPattern = intent_class
-            
-            if SimilarityPercentage > 100:
-                SimilarityPercentage = SimilarityPercentage/100
-            
+
     print(f"Similarity: {SimilarityPercentage:.2f}%")
 
     if MostSimilarPattern:
@@ -53,6 +52,7 @@ def patterncompare(input_string, intents_file_path):
 def responsecompare(input_string, intents_file_path, intent_class):
     input_string = input_string.lower()
     MaxSimilarity = 0
+    SimilarityPercentage = 0
     MostSimilarResponse = None
 
     responses = []
@@ -69,6 +69,7 @@ def responsecompare(input_string, intents_file_path, intent_class):
         raise NoMatchingIntentError("No matching intent class found.")
 
     for response in responses:
+        Similarity = 0
         response = response.lower()
         WordList = Tokenize(response)
 
@@ -81,22 +82,17 @@ def responsecompare(input_string, intents_file_path, intent_class):
         OutofHundred = len(BagOfWords)  # Total number of words in the input
         Hundred = len(BagOfWords + WordList)  # Total number of words in both input and pattern
 
-        SimilarityPercentage = (Similarity / Hundred) * 100  # Corrected calculation
-        
         if Similarity > MaxSimilarity:
+            SimilarityPercentage = (Similarity / Hundred) * 100
             MaxSimilarity = Similarity
             MostSimilarResponse = response
-        
-        if SimilarityPercentage > 100:
-            SimilarityPercentage = SimilarityPercentage/100
-        
+
     print(f"Similarity: {SimilarityPercentage:.2f}%")
-    
+
     # Convert MSR back into original string
     for response in responses:
         lowresponse = response.lower()
         if lowresponse == MostSimilarResponse:
             MostSimilarResponse = response
-    
-    return MostSimilarResponse
 
+    return MostSimilarResponse
