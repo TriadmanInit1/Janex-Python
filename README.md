@@ -7,7 +7,7 @@ Monopolistic companies are confining their Artificial Intelligence research to t
 
 These businesses go on to sell their research to the Government, and sell access to it to the public. As such, my aim is to create a framework that you can use to easily construct your own language models, and other machine learning algorithms, as I believe this power should not be held firmly in the hands of corrupt rich politicians and advantaged capitalists. (It will take a while before it reaches a practical level)
 
-Released under the *new* Free Lily License 1.0, Janex will improve and become a useful tool for users to conduct their own research in the potential of Artifical Intelligence.
+Released under the **new** Free Lily License 1.0, Janex will improve and become a useful tool for users to conduct their own research in the potential of Artifical Intelligence.
 
 <h3> How to use </h3>
 
