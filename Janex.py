@@ -35,7 +35,23 @@ def patterncompare(input_string, intents_file_path):
             Similarity = 0
             pattern = pattern.lower()
             WordList = Tokenize(pattern)
-            Similarity = len(set(BagOfWords) & set(WordList)) / len(set(BagOfWords + WordList))
+            NewList = []
+            NewBag = []
+
+            for word in WordList:
+                word = stem(word)
+                NewList.append(word)
+
+            for word in BagOfWords:
+                word = stem(word)
+                NewBag.append(word)
+
+            WordList = NewList
+            BagOfWords = NewBag
+
+            for word in BagOfWords:
+                if word in WordList:
+                    Similarity = (Similarity+1/len(WordList + BagOfWords))
 
             if Similarity > MaxSimilarity:
                 SimilarityPercentage = Similarity * 100
@@ -69,21 +85,30 @@ def responsecompare(input_string, intents_file_path, intent_class):
         raise NoMatchingIntentError("No matching intent class found.")
 
     for response in responses:
+
         Similarity = 0
-        response = response.lower()
+        pattern = response.lower()
         WordList = Tokenize(response)
+        NewList = []
+        NewBag = []
 
-        for InputWord in BagOfWords:
-            for OutputWord in WordList:
-                if InputWord == OutputWord:
-                    Similarity += 1
-#                    print("Match found!")
+        for word in WordList:
+            word = stem(word)
+            NewList.append(word)
 
-        OutofHundred = len(BagOfWords)  # Total number of words in the input
-        Hundred = len(BagOfWords + WordList)  # Total number of words in both input and pattern
+        for word in BagOfWords:
+            word = stem(word)
+            NewBag.append(word)
+
+        WordList = NewList
+        BagOfWords = NewBag
+
+        for word in BagOfWords:
+            if word in WordList:
+                Similarity = (Similarity+1/len(WordList + BagOfWords))
 
         if Similarity > MaxSimilarity:
-            SimilarityPercentage = (Similarity / Hundred) * 100
+            SimilarityPercentage = Similarity * 100
             MaxSimilarity = Similarity
             MostSimilarResponse = response
 
@@ -91,8 +116,30 @@ def responsecompare(input_string, intents_file_path, intent_class):
 
     # Convert MSR back into original string
     for response in responses:
+        lowresponselist = []
         lowresponse = response.lower()
-        if lowresponse == MostSimilarResponse:
-            MostSimilarResponse = response
+        lowresponselist = stem_sentence(lowresponse)
+
+        for lowresponse in lowresponselist:
+            if lowresponse == MostSimilarResponse:
+                MostSImilarResponse = response
 
     return MostSimilarResponse
+
+def stem(input_word):
+    suffixes = ['ing', 'ly', 'ed', 'es', 's', 'er', 'est', 'y']
+    for suffix in suffixes:
+        if input_word.endswith(suffix):
+            input_word = input_word[:-len(suffix)]
+            break
+    return input_word
+
+def stem_sentence(input_string):
+    wordlist = []
+    stemmedwords = []
+    wordlist = input_string.split()
+    for input_word in wordlist:
+        word = stem(input_word)
+        stemmedwords.append(word)
+
+    return stemmedwords
