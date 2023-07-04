@@ -8,6 +8,7 @@ def Tokenize(input_string):
     input_string = input_string.strip()
     input_string = input_string.translate(str.maketrans("", "", string.punctuation))
     words = input_string.split()
+
     return words
 
 def train(intents_file_path):
@@ -56,10 +57,10 @@ def patterncompare(input_string, intents_file_path):
                 if word in WordList:
                     Similarity = Similarity + 1
 
-        if Similarity > HighestSimilarity:
-            SimilarityPercentage = Similarity / len(OverallWordList + WordList2)
-            HighestSimilarity = Similarity
-            MostSimilarPattern = intent_class
+                if Similarity > HighestSimilarity:
+                    SimilarityPercentage = Similarity / len(OverallWordList + WordList2)
+                    HighestSimilarity = Similarity
+                    MostSimilarPattern = intent_class
 
     print(f"Similarity: {SimilarityPercentage:.2f}%")
 
@@ -110,10 +111,10 @@ def responsecompare(input_string, intents_file_path, intent_class):
             if word in WordList:
                 Similarity = (Similarity+1/len(WordList + WordList2))
 
-        if Similarity > HighestSimilarity:
-            SimilarityPercentage = Similarity * 100
-            HighestSimilarity = Similarity
-            MostSimilarResponse = response
+            if Similarity > HighestSimilarity:
+                SimilarityPercentage = Similarity * 100
+                HighestSimilarity = Similarity
+                MostSimilarResponse = response
 
     print(f"Similarity: {SimilarityPercentage:.2f}%")
 
@@ -130,7 +131,7 @@ def responsecompare(input_string, intents_file_path, intent_class):
     return MostSimilarResponse
 
 def stem(input_word):
-    suffixes = ['ing', 'ly', 'ed', 'es', 's', 'er', 'est', 'y', 'ily', 'able', 'ful', 'ness', 'less', 'ment', 'ive', 'ize', 'ous']
+    suffixes = ['ing', 'ly', 'ed', 'es', "'s", 'er', 'est', 'y', 'ily', 'able', 'ful', 'ness', 'less', 'ment', 'ive', 'ize', 'ous']
     for suffix in suffixes:
         if input_word.endswith(suffix):
             input_word = input_word[:-len(suffix)]
