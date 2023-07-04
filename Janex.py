@@ -130,7 +130,7 @@ def responsecompare(input_string, intents_file_path, intent_class):
     return MostSimilarResponse
 
 def stem(input_word):
-    suffixes = ['ing', 'ly', 'ed', 'es', 's', 'er', 'est', 'y']
+    suffixes = ['ing', 'ly', 'ed', 'es', 's', 'er', 'est', 'y', 'ily', 'able', 'ful', 'ness', 'less', 'ment', 'ive', 'ize', 'ous']
     for suffix in suffixes:
         if input_word.endswith(suffix):
             input_word = input_word[:-len(suffix)]
