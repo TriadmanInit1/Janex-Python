@@ -9,11 +9,22 @@ def Tokenize(input_string):
     input_string = input_string.translate(str.maketrans("", "", string.punctuation))
     words = input_string.split()
 
+    words = stem_list(words)
+
     return words
+
+def Tokenize_List(input_list):
+    stemmedwords = []
+    for word in input_list:
+        token = Tokenize(word)
+        Tokenwords.append(token)
+
+    return Tokenwords
 
 def train(intents_file_path):
     with open(intents_file_path, 'r') as json_data:
         intents = json.load(json_data)
+    return intents
 
 def patterncompare(input_string, intents_file_path):
     input_string = input_string.lower()
@@ -146,5 +157,13 @@ def stem_sentence(input_string):
     for input_word in wordlist:
         word = stem(input_word)
         stemmedwords.append(word)
+
+    return stemmedwords
+
+def stem_list(input_list):
+    stemmedwords = []
+    for word in input_list:
+        stemmedword = stem(word)
+        stemmedwords.append(stemmedword)
 
     return stemmedwords
