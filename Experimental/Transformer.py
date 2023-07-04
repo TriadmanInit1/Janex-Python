@@ -1,6 +1,9 @@
 import numpy as np
 
-# Define the Transformer components
+def softmax(x, axis=-1):
+    # Apply softmax operation to the input array along the specified axis
+    e_x = np.exp(x - np.max(x, axis=axis, keepdims=True))
+    return e_x / np.sum(e_x, axis=axis, keepdims=True)
 
 class PositionalEncoding:
     def __init__(self, d_model, max_seq_len):
@@ -69,13 +72,6 @@ class FeedForwardNetwork:
 
         return output
 
-# Create a simple Transformer model
-
-def softmax(x, axis=-1):
-    # Apply softmax operation to the input array along the specified axis
-    e_x = np.exp(x - np.max(x, axis=axis, keepdims=True))
-    return e_x / np.sum(e_x, axis=axis, keepdims=True)
-
 class Transformer:
     def __init__(self, d_model, num_heads, d_ff, num_layers):
         self.d_model = d_model
@@ -90,15 +86,14 @@ class Transformer:
             )
 
     def forward(self, X):
-        for _ in range(self.num_layers):
-            attention_output = self.layers[_][0].forward(X)
+        for layer in self.layers:
+            attention_output = layer[0].forward(X)
             X = X + attention_output  # Residual connection
-            X = X + self.layers[_][1].forward(X)  # Residual connection
+            X = X + layer[1].forward(X)  # Residual connection
 
         return X
 
 # Example usage
-
 max_seq_len = 10
 d_model = 64
 num_heads = 4
@@ -115,48 +110,4 @@ X_with_pos_enc = X + pos_encoding
 transformer = Transformer(d_model, num_heads, d_ff, num_layers)
 output = transformer.forward(X_with_pos_enc)
 
-import numpy as np
-
-# Define the necessary classes and functions (same as the code provided)
-
-# Example usage
-max_seq_len = 10
-d_model = 64
-num_heads = 4
-d_ff = 128
-num_layers = 2
-
-# Tokenize the sentence
-sentence = "You are an alien."
-tokens = sentence.split()  # Split by whitespace
-num_tokens = len(tokens)
-
-# Encode the tokens
-token_to_id = {"You": 1, "are": 2, "an": 3, "alien": 4}  # Remove the period from 'alien'
-encoded_tokens = [token_to_id[token] for token in tokens]
-
-# Pad or truncate the sequence
-if num_tokens < max_seq_len:
-    padded_tokens = encoded_tokens + [0] * (max_seq_len - num_tokens)
-else:
-    padded_tokens = encoded_tokens[:max_seq_len]
-
-# Convert the numerical sequence into a NumPy array
-X = np.array(padded_tokens)
-
-# Apply positional encoding
-pos_enc = PositionalEncoding(d_model, max_seq_len)
-positions = np.arange(max_seq_len)
-pos_encoding = pos_enc.get_positional_encoding(positions)
-
-# Add positional encodings to the input
-X_with_pos_enc = X + pos_encoding
-
-# Create a Transformer model
-transformer = Transformer(d_model, num_heads, d_ff, num_layers)
-
-# Process the input through the Transformer model
-output = transformer.forward(X_with_pos_enc)
-
-# Print the output
 print(output)
