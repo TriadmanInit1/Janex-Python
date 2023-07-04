@@ -70,5 +70,5 @@ print(BestResponse)
 
 - Word tokenizer ✓
 - Intent classifier ✓
-- Language Model Builder (TBD)
+- Word Stemmer ✓
 - Support for Darwin, Unix-like and Windows ✓
