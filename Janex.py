@@ -16,7 +16,7 @@ def train(intents_file_path):
 
 def patterncompare(input_string, intents_file_path):
     input_string = input_string.lower()
-    MaxSimilarity = 0
+    HighestSimilarity = 0
     MostSimilarPattern = None
     SimilarityPercentage = 0
 
@@ -56,9 +56,9 @@ def patterncompare(input_string, intents_file_path):
                 if word in WordList:
                     Similarity = Similarity + 1
 
-        if Similarity > MaxSimilarity:
+        if Similarity > HighestSimilarity:
             SimilarityPercentage = Similarity / len(OverallWordList + WordList2)
-            MaxSimilarity = Similarity
+            HighestSimilarity = Similarity
             MostSimilarPattern = intent_class
 
     print(f"Similarity: {SimilarityPercentage:.2f}%")
@@ -70,7 +70,7 @@ def patterncompare(input_string, intents_file_path):
 
 def responsecompare(input_string, intents_file_path, intent_class):
     input_string = input_string.lower()
-    MaxSimilarity = 0
+    HighestSimilarity = 0
     SimilarityPercentage = 0
     MostSimilarResponse = None
 
@@ -110,9 +110,9 @@ def responsecompare(input_string, intents_file_path, intent_class):
             if word in WordList:
                 Similarity = (Similarity+1/len(WordList + WordList2))
 
-        if Similarity > MaxSimilarity:
+        if Similarity > HighestSimilarity:
             SimilarityPercentage = Similarity * 100
-            MaxSimilarity = Similarity
+            HighestSimilarity = Similarity
             MostSimilarResponse = response
 
     print(f"Similarity: {SimilarityPercentage:.2f}%")
