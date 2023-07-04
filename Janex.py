@@ -59,6 +59,7 @@ def patterncompare(input_string, intents_file_path):
 
                 if Similarity > HighestSimilarity:
                     SimilarityPercentage = Similarity / len(OverallWordList + WordList2)
+# Just to test the mathy bit idk am autistic and gay so maths isn't strong suit                    print(len(OverallWordList+WordList2s)
                     HighestSimilarity = Similarity
                     MostSimilarPattern = intent_class
 
