@@ -16,7 +16,7 @@ def train(intents_file_path):
 
 def patterncompare(input_string, intents_file_path):
     input_string = input_string.lower()
-    MaxSimilarity = 0
+    HighestSimilarity = 0
     MostSimilarPattern = None
     SimilarityPercentage = 0
 
@@ -26,15 +26,18 @@ def patterncompare(input_string, intents_file_path):
     with open(intents_file_path, 'r') as json_data:
         intents = json.load(json_data)
 
-    BagOfWords = Tokenize(input_string)
+    WordList2 = Tokenize(input_string)
 
     for intent_class in intents['intents']:
+        OverallWordList = []
+        Similarity = 0
 
         patterns = intent_class.get('patterns')
         for pattern in patterns:
-            Similarity = 0
+            WordList = []
             pattern = pattern.lower()
             WordList = Tokenize(pattern)
+            OverallWordList.append(WordList)
             NewList = []
             NewBag = []
 
@@ -42,21 +45,21 @@ def patterncompare(input_string, intents_file_path):
                 word = stem(word)
                 NewList.append(word)
 
-            for word in BagOfWords:
+            for word in WordList2:
                 word = stem(word)
                 NewBag.append(word)
 
             WordList = NewList
-            BagOfWords = NewBag
+            WordList2 = NewBag
 
-            for word in BagOfWords:
+            for word in WordList2:
                 if word in WordList:
-                    Similarity = (Similarity+1/len(WordList + BagOfWords))
+                    Similarity = Similarity + 1
 
-            if Similarity > MaxSimilarity:
-                SimilarityPercentage = Similarity * 100
-                MaxSimilarity = Similarity
-                MostSimilarPattern = intent_class
+        if Similarity > HighestSimilarity:
+            SimilarityPercentage = Similarity / len(OverallWordList + WordList2)
+            HighestSimilarity = Similarity
+            MostSimilarPattern = intent_class
 
     print(f"Similarity: {SimilarityPercentage:.2f}%")
 
@@ -67,7 +70,7 @@ def patterncompare(input_string, intents_file_path):
 
 def responsecompare(input_string, intents_file_path, intent_class):
     input_string = input_string.lower()
-    MaxSimilarity = 0
+    HighestSimilarity = 0
     SimilarityPercentage = 0
     MostSimilarResponse = None
 
@@ -77,7 +80,7 @@ def responsecompare(input_string, intents_file_path, intent_class):
     with open(intents_file_path, 'r') as json_data:
         intents = json.load(json_data)
 
-    BagOfWords = Tokenize(input_string)
+    WordList2 = Tokenize(input_string)
 
     if intent_class is not None:
         responses = intent_class.get('responses')
@@ -96,20 +99,20 @@ def responsecompare(input_string, intents_file_path, intent_class):
             word = stem(word)
             NewList.append(word)
 
-        for word in BagOfWords:
+        for word in WordList2:
             word = stem(word)
             NewBag.append(word)
 
         WordList = NewList
-        BagOfWords = NewBag
+        WordList2 = NewBag
 
-        for word in BagOfWords:
+        for word in WordList2:
             if word in WordList:
-                Similarity = (Similarity+1/len(WordList + BagOfWords))
+                Similarity = (Similarity+1/len(WordList + WordList2))
 
-        if Similarity > MaxSimilarity:
+        if Similarity > HighestSimilarity:
             SimilarityPercentage = Similarity * 100
-            MaxSimilarity = Similarity
+            HighestSimilarity = Similarity
             MostSimilarResponse = response
 
     print(f"Similarity: {SimilarityPercentage:.2f}%")
