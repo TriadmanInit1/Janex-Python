@@ -1,16 +1,17 @@
 from Janex import *
 
-input_string = input("You: ")
-
-words = Tokenize(input_string)
-
 intents_file_path = "intents.json"
+matcher = IntentMatcher(intents_file_path)
 
-intent_class = patterncompare(input_string, intents_file_path)
+input_string = input("You: ")
+words = matcher.Tokenize(input_string)
 
-BestResponse = responsecompare(input_string, intents_file_path, intent_class)
+intent_class = matcher.patterncompare(input_string)
 
-print(BestResponse)
+print(intent_class.get("tag"))
 
-stemmed_words = stem_sentence(input_string)
-# print(stemmed_words)
+best_response = matcher.responsecompare(input_string, intent_class)
+
+print(best_response)
+
+stemmed_words = matcher.stem_sentence(input_string)
