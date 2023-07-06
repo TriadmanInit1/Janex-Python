@@ -29,6 +29,16 @@ from Janex.Janex import *
 
 <h4>Using Janex in your code</h4>
 
+<h5>Create an instance</h5>
+
+Before anything else, you need to create an instance of the IntentMatcher class.
+
+```
+intents_file_path = "intents.json"
+
+matcher = IntentMatcher(intents_file_path)
+```
+
 <h5>Tokenizing:</h5>
 
 To utilise the tokenizer feature, here is an example of how it can be used.
@@ -36,7 +46,7 @@ To utilise the tokenizer feature, here is an example of how it can be used.
 ```
 input_string = "Hello! What is your name?"
 
-words = Tokenize(input_string)
+words = matcher.Tokenize(input_string)
 
 print(words)
 ```
@@ -48,7 +58,7 @@ To compare the input with the patterns from your intents.json storage file, you 
 ```
 intents_file_path = "intents.json"
 
-intent_class = patterncompare(input_string, intents_file_path)
+intent_class = matcher.patterncompare(input_string, intents_file_path)
 
 print(intent_class)
 ```
@@ -58,17 +68,26 @@ print(intent_class)
 Sometimes a list of responses in a class can become varied in terms of context, and so in order to get the best possible response, we can use the 'responsecompare' function to compare the input string with your list of responses.
 
 ```
-
-BestResponse = responsecompare(input_string, intents_file_path, intent_class)
+BestResponse = matcher.responsecompare(input_string, intents_file_path, intent_class)
 
 print(BestResponse)
+```
+
+<h5>Using Transformers</h5>
+
+I am still currently learning about complex mathematical Machine Learning algorithms, so the numpy-based transformers included in this project are still in development, and may not always be useful or stable for a while. If you would like to use them for whatever, here's an example.
 
 ```
+output = matcher.Transform(input_string)
+print(output)
+```
+
 <h3> Functionality </h3>
 
-<h4>Version 0.0.1</h4>
+<h4>Version 0.0.2</h4>
 
 - Word tokenizer ✓
 - Intent classifier ✓
 - Word Stemmer ✓
 - Support for Darwin, Unix-like and Windows ✓
+- Simple text transformer ✓
