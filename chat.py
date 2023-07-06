@@ -15,3 +15,7 @@ best_response = matcher.responsecompare(input_string, intent_class)
 print(best_response)
 
 stemmed_words = matcher.stem_sentence(input_string)
+
+output = matcher.Transform(input_string)
+
+OutputPattern = matcher.outputcompare(output)

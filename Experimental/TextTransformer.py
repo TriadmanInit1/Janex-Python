@@ -1,4 +1,5 @@
 import numpy as np
+import os
 
 def softmax(x, axis=-1):
     # Apply softmax operation to the input array along the specified axis
@@ -93,37 +94,37 @@ class Transformer:
 
         return X
 
-# Example usage
-max_seq_len = 10
-d_model = 64
-num_heads = 4
-d_ff = 128
-num_layers = 2
+def Transform(input_string):
+    # Example usage
+    max_seq_len = 10
+    d_model = 64
+    num_heads = 4
+    d_ff = 128
+    num_layers = 2
 
-pos_enc = PositionalEncoding(d_model, max_seq_len)
+    pos_enc = PositionalEncoding(d_model, max_seq_len)
 
-# Text preprocessing
-text = "This is a sample text input."
-tokens = text.split()  # Split the text into tokens
-max_seq_len = max_seq_len  # Specify the desired maximum sequence length
+    # Text preprocessing
+    tokens = Tokenize(input_string)
+    max_seq_len = max_seq_len  # Specify the desired maximum sequence length
 
-print(tokens)
+    print(tokens)
 
-# Convert tokens to numerical representation (e.g., using word embeddings)
-word_embeddings = {}  # Replace with your word embeddings dictionary
-X = np.array([word_embeddings.get(token, np.zeros(d_model)) for token in tokens])
+    # Convert tokens to numerical representation (e.g., using word embeddings)
+    word_embeddings = {}  # Replace with your word embeddings dictionary
+    X = np.array([word_embeddings.get(token, np.zeros(d_model)) for token in tokens])
 
-# Pad or truncate X to match the desired sequence length
-X = X[:max_seq_len]
-padding = np.zeros((max_seq_len - X.shape[0], d_model))
-X = np.vstack((X, padding))
+    # Pad or truncate X to match the desired sequence length
+    X = X[:max_seq_len]
+    padding = np.zeros((max_seq_len - X.shape[0], d_model))
+    X = np.vstack((X, padding))
 
-positions = np.arange(max_seq_len)
-pos_encoding = pos_enc.get_positional_encoding(positions)
+    positions = np.arange(max_seq_len)
+    pos_encoding = pos_enc.get_positional_encoding(positions)
 
-X_with_pos_enc = X + pos_encoding
+    X_with_pos_enc = X + pos_encoding
 
-transformer = Transformer(d_model, num_heads, d_ff, num_layers)
-output = transformer.forward(X_with_pos_enc)
+    transformer = Transformer(d_model, num_heads, d_ff, num_layers)
+    output = transformer.forward(X_with_pos_enc)
 
-print(output)
+    return output
