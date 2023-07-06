@@ -73,7 +73,7 @@ BestResponse = matcher.responsecompare(input_string, intents_file_path, intent_c
 print(BestResponse)
 ```
 
-<h5>Using Transformers</h5>
+<h5>Using Transformers:</h5>
 
 I am still currently learning about complex mathematical Machine Learning algorithms, so the numpy-based transformers included in this project are still in development, and may not always be useful or stable for a while. If you would like to use them for whatever, here's an example.
 
