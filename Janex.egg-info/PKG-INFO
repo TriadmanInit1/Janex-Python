@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Janex
-Version: 0.0.2b0
+Version: 0.0.2b2
 Home-page: https://github.com/Cipher58
 Author: Cipher58
 Author-email: cipher58public@gmail.com
@@ -36,7 +36,7 @@ gh repo clone Cipher58/Janex
 Secondly, import the Janex toolkit into your code by adding this line
 
 ```
-from Janex.Janex import *
+from Janex import *
 ```
 
 <h4>Using Janex in your code</h4>
