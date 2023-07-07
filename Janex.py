@@ -13,6 +13,8 @@ class IntentMatcher:
         pass
 
     def Tokenize(self, input_string):
+
+        input_string = input_string.lower()
         input_string = input_string.strip()
         input_string = input_string.translate(str.maketrans("", "", string.punctuation))
         words = input_string.split()
