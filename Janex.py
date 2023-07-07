@@ -87,41 +87,6 @@ class IntentMatcher:
         else:
             raise self.NoMatchingIntentError("No matching intent class found.")
 
-    def Transform(self, input_string):
-            # Example usage
-            max_seq_len = 10
-            d_model = 64
-            num_heads = 4
-            d_ff = 128
-            num_layers = 2
-
-            pos_enc = PositionalEncoding(d_model, max_seq_len)
-
-            # Text preprocessing
-            tokens = self.Tokenize(input_string)
-            max_seq_len = max_seq_len  # Specify the desired maximum sequence length
-
-            print(tokens)
-
-            # Convert tokens to numerical representation (e.g., using word embeddings)
-            word_embeddings = {}  # Replace with your word embeddings dictionary
-            X = np.array([word_embeddings.get(token, np.zeros(d_model)) for token in tokens])
-
-            # Pad or truncate X to match the desired sequence length
-            X = X[:max_seq_len]
-            padding = np.zeros((max_seq_len - X.shape[0], d_model))
-            X = np.vstack((X, padding))
-
-            positions = np.arange(max_seq_len)
-            pos_encoding = pos_enc.get_positional_encoding(positions)
-
-            X_with_pos_enc = X + pos_encoding
-
-            transformer = Transformer(d_model, num_heads, d_ff, num_layers)
-            output = transformer.forward(X_with_pos_enc)
-
-            return output
-
     def responsecompare(self, input_string, intent_class):
         input_string = input_string.lower()
         HighestSimilarity = 0
@@ -253,6 +218,41 @@ class IntentMatcher:
             return MostSimilarPattern
         else:
             raise self.NoMatchingIntentError("No matching intent class found.")
+
+    def Transform(self, input_string):
+            # Example usage
+            max_seq_len = 10
+            d_model = 64
+            num_heads = 4
+            d_ff = 128
+            num_layers = 2
+
+            pos_enc = PositionalEncoding(d_model, max_seq_len)
+
+            # Text preprocessing
+            tokens = self.Tokenize(input_string)
+            max_seq_len = max_seq_len  # Specify the desired maximum sequence length
+
+            print(tokens)
+
+            # Convert tokens to numerical representation (e.g., using word embeddings)
+            word_embeddings = {}  # Replace with your word embeddings dictionary
+            X = np.array([word_embeddings.get(token, np.zeros(d_model)) for token in tokens])
+
+            # Pad or truncate X to match the desired sequence length
+            X = X[:max_seq_len]
+            padding = np.zeros((max_seq_len - X.shape[0], d_model))
+            X = np.vstack((X, padding))
+
+            positions = np.arange(max_seq_len)
+            pos_encoding = pos_enc.get_positional_encoding(positions)
+
+            X_with_pos_enc = X + pos_encoding
+
+            transformer = Transformer(d_model, num_heads, d_ff, num_layers)
+            output = transformer.forward(X_with_pos_enc)
+
+            return output
 
 def softmax(x, axis=-1):
     # Apply softmax operation to the input array along the specified axis
