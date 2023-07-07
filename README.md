@@ -84,7 +84,7 @@ print(output)
 
 <h3> Functionality </h3>
 
-<h4>Version 0.0.2-beta</h4>
+<h4>Version 0.0.2-Gamma</h4>
 
 - Word tokenizer ✓
 - Intent classifier ✓
