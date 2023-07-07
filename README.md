@@ -34,7 +34,7 @@ from Janex import *
 Before anything else, you need to create an instance of the IntentMatcher class.
 
 ```
-intents_file_path = "intents.json"
+intents_file_path = "./intents.json"
 
 matcher = IntentMatcher(intents_file_path)
 ```
@@ -58,7 +58,7 @@ To compare the input with the patterns from your intents.json storage file, you 
 ```
 intents_file_path = "intents.json"
 
-intent_class = matcher.patterncompare(input_string, intents_file_path)
+intent_class = matcher.pattern_compare(input_string, intents_file_path)
 
 print(intent_class)
 ```
@@ -68,7 +68,7 @@ print(intent_class)
 Sometimes a list of responses in a class can become varied in terms of context, and so in order to get the best possible response, we can use the 'responsecompare' function to compare the input string with your list of responses.
 
 ```
-BestResponse = matcher.responsecompare(input_string, intents_file_path, intent_class)
+BestResponse = matcher.response_compare(input_string, intents_file_path, intent_class)
 
 print(BestResponse)
 ```
