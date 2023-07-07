@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+Janex.egg-info/PKG-INFO
+Janex.egg-info/SOURCES.txt
+Janex.egg-info/dependency_links.txt
+Janex.egg-info/requires.txt
+Janex.egg-info/top_level.txt

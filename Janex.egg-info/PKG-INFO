@@ -1,3 +1,15 @@
+Metadata-Version: 2.1
+Name: Janex
+Version: 0.0.2b0
+Home-page: https://github.com/Cipher58
+Author: Cipher58
+Author-email: cipher58public@gmail.com
+License: Lily 1.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # Janex
 A free open-source framework which can be used to build Machine Learning tools, LLMs, and Natural Language Processing scripts with full simplicity.
 
@@ -24,7 +36,7 @@ gh repo clone Cipher58/Janex
 Secondly, import the Janex toolkit into your code by adding this line
 
 ```
-from Janex import *
+from Janex.Janex import *
 ```
 
 <h4>Using Janex in your code</h4>
