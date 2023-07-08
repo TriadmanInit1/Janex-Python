@@ -98,13 +98,14 @@ class IntentMatcher:
 
             word_list = new_list
             word_list_2 = new_bag
+            overall_word_list = word_list + word_list_2
 
             for word in word_list_2:
                 if word in word_list:
-                    similarity += 1 / (len(word_list) + len(word_list_2))
+                    similarity += 1
 
             if similarity > highest_similarity:
-                similarity_percentage = similarity * 100
+                similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
                 highest_similarity = similarity
                 most_similar_response = response
 
@@ -146,46 +147,3 @@ class IntentMatcher:
             stemmed_words.append(stemmed_word)
 
         return stemmed_words
-
-    def output_compare(self, output):
-        highest_similarity = 0
-        most_similar_pattern = None
-        similarity_percentage = 0
-
-        for intent_class in self.intents["intents"]:
-            overall_word_list = []
-            similarity = 0
-
-            for pattern in intent_class["patterns"]:
-                word_list = []
-                pattern_lower = pattern.lower()
-                word_list = self.transform(pattern_lower)
-                overall_word_list.append(word_list)
-                new_list = []
-                new_bag = []
-
-                for word in word_list:
-                    new_list.append(word)
-
-                word_list_2 = output
-                for word in word_list_2:
-                    new_bag.append(word)
-
-                word_list = new_list
-                word_list_2 = new_bag
-
-                for word in word_list_2:
-                    if word in word_list:
-                        similarity += 1
-
-                if similarity > highest_similarity:
-                    similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
-                    highest_similarity = similarity
-                    most_similar_pattern = intent_class
-
-        print(f"Similarity: {similarity_percentage:.2%}")
-
-        if most_similar_pattern:
-            return most_similar_pattern
-        else:
-            raise ValueError("No matching intent class found.")
