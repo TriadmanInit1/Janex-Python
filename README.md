@@ -13,7 +13,7 @@ Released under the **new** Free Lily License 1.0, Janex will improve and become 
 
 <h5> Adding to your project </h5>
 
-Firstly, clone the git repository to the local directory of your project.
+Firstly, if you want to use this from source, clone the git repository to the local directory of your project.
 
 ```
 cd /path/to/your/project/directory
@@ -21,7 +21,7 @@ cd /path/to/your/project/directory
 gh repo clone Cipher58/Janex
 ```
 
-Secondly, import the Janex toolkit into your code by adding this line
+Secondly, even if you are just using the library, import the Janex toolkit into your code by adding this line
 
 ```
 from Janex import *
@@ -84,7 +84,7 @@ print(output)
 
 <h3> Functionality </h3>
 
-<h4>Version 0.0.2-Gamma</h4>
+<h4>Version 0.0.5</h4>
 
 - Word tokenizer ✓
 - Intent classifier ✓

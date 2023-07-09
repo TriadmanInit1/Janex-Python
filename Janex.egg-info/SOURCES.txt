@@ -2,7 +2,6 @@ LICENSE
 README.md
 Setup.py
 setup.py
-Janex/Janex.py
 Janex/__init__.py
 Janex/chat.py
 Janex.egg-info/PKG-INFO
