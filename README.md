@@ -13,7 +13,7 @@ Released under the **new** Free Lily License 1.0, Janex will improve and become 
 
 <h5> Adding to your project </h5>
 
-Firstly, clone the git repository to the local directory of your project.
+Firstly, if you want to use this from source, clone the git repository to the local directory of your project.
 
 ```
 cd /path/to/your/project/directory
@@ -21,7 +21,7 @@ cd /path/to/your/project/directory
 gh repo clone Cipher58/Janex
 ```
 
-Secondly, import the Janex toolkit into your code by adding this line
+Secondly, even if you are just using the library, import the Janex toolkit into your code by adding this line
 
 ```
 from Janex import *
@@ -34,7 +34,7 @@ from Janex import *
 Before anything else, you need to create an instance of the IntentMatcher class.
 
 ```
-intents_file_path = "intents.json"
+intents_file_path = "./intents.json"
 
 matcher = IntentMatcher(intents_file_path)
 ```
@@ -58,7 +58,7 @@ To compare the input with the patterns from your intents.json storage file, you 
 ```
 intents_file_path = "intents.json"
 
-intent_class = matcher.patterncompare(input_string, intents_file_path)
+intent_class = matcher.pattern_compare(input_string, intents_file_path)
 
 print(intent_class)
 ```
@@ -68,7 +68,7 @@ print(intent_class)
 Sometimes a list of responses in a class can become varied in terms of context, and so in order to get the best possible response, we can use the 'responsecompare' function to compare the input string with your list of responses.
 
 ```
-BestResponse = matcher.responsecompare(input_string, intents_file_path, intent_class)
+BestResponse = matcher.response_compare(input_string, intents_file_path, intent_class)
 
 print(BestResponse)
 ```
@@ -84,7 +84,7 @@ print(output)
 
 <h3> Functionality </h3>
 
-<h4>Version 0.0.2-Gamma</h4>
+<h4>Version 0.0.5</h4>
 
 - Word tokenizer ✓
 - Intent classifier ✓
