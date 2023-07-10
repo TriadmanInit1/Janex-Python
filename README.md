@@ -13,15 +13,13 @@ Released under the **new** Free Lily License 1.0, Janex will improve and become 
 
 <h5> Adding to your project </h5>
 
-Firstly, if you want to use this from source, clone the git repository to the local directory of your project.
+Firstly, you'll need to install the library using the Python pip package manager.
 
 ```
-cd /path/to/your/project/directory
+python3 -m pip install Janex
 
-gh repo clone Cipher58/Janex
 ```
-
-Secondly, even if you are just using the library, import the Janex toolkit into your code by adding this line
+Secondly, you need to import the library into your Python script.
 
 ```
 from Janex import *
