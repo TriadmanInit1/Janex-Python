@@ -68,7 +68,8 @@ class IntentMatcher:
         print(f"Similarity: {similarity_percentage:.2%}")
 
         if most_similar_pattern:
-            return most_similar_pattern
+            highest_similarity = highest_similarity / 100
+            return most_similar_pattern, highest_similarity
         else:
             raise ValueError("No matching intent class found.")
 

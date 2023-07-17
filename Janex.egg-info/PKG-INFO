@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: Janex
-Version: 0.0.5
+Version: 0.0.6a0
 Home-page: https://github.com/Cipher58
-Download-URL: https://github.com/Cipher58/Janex/archive/refs/tags/v0.0.2-beta.tar.gz
+Download-URL: https://github.com/Cipher58/Janex/
 Author: Cipher58
 Author-email: cipher58public@gmail.com
 License: Lily 1.0
@@ -26,15 +26,13 @@ Released under the **new** Free Lily License 1.0, Janex will improve and become 
 
 <h5> Adding to your project </h5>
 
-Firstly, clone the git repository to the local directory of your project.
+Firstly, you'll need to install the library using the Python pip package manager.
 
 ```
-cd /path/to/your/project/directory
+python3 -m pip install Janex
 
-gh repo clone Cipher58/Janex
 ```
-
-Secondly, import the Janex toolkit into your code by adding this line
+Secondly, you need to import the library into your Python script.
 
 ```
 from Janex import *
@@ -97,7 +95,7 @@ print(output)
 
 <h3> Functionality </h3>
 
-<h4>Version 0.0.2-Gamma</h4>
+<h4>Version 0.0.5</h4>
 
 - Word tokenizer ✓
 - Intent classifier ✓

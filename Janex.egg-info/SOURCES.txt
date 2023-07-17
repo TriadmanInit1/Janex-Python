@@ -4,6 +4,7 @@ Setup.py
 setup.py
 Janex/__init__.py
 Janex/chat.py
+Janex/main.py
 Janex.egg-info/PKG-INFO
 Janex.egg-info/SOURCES.txt
 Janex.egg-info/dependency_links.txt
