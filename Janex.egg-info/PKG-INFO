@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Janex
-Version: 0.0.6a0
+Version: 0.0.7
 Home-page: https://github.com/Cipher58
 Download-URL: https://github.com/Cipher58/Janex/
 Author: Cipher58
@@ -100,5 +100,5 @@ print(output)
 - Word tokenizer ✓
 - Intent classifier ✓
 - Word Stemmer ✓
-- Support for Darwin, Unix-like and Windows ✓
+- Support for Darwin, Linux (GNU) and Windows ✓
 - Simple text transformer ✓
