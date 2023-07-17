@@ -87,5 +87,5 @@ print(output)
 - Word tokenizer ✓
 - Intent classifier ✓
 - Word Stemmer ✓
-- Support for Darwin, Unix-like and Windows ✓
+- Support for Darwin, Linux (GNU) and Windows ✓
 - Simple text transformer ✓
