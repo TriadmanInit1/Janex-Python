@@ -84,6 +84,8 @@ class IntentMatcher:
 
         for response in responses:
             similarity = 0
+            Count = 0
+            InputCount = 0
             response_lower = response.lower()
             word_list = self.tokenize(response_lower)
             new_list = []
@@ -110,11 +112,20 @@ class IntentMatcher:
                     else:
                         similarity += 1
 
-            distance = abs(len(response) - len(input_string)) / 1000
+            response_words = self.tokenize(response)
+            input_words = self.tokenize(input_string)
 
-            print(distance)
+            for word in response_words:
+                Count += 0.01
 
-            similarity = similarity + distance
+            for word in input_words:
+                InputCount += 0.01
+
+            distance = Count + InputCount / 2
+
+#            print(distance)
+
+            similarity = similarity - distance
 
         # Calculate the similarity percentage and the distance
             similarity_percentage = similarity / len(overall_word_list)  # Calculate average similarity
@@ -123,7 +134,7 @@ class IntentMatcher:
                 highest_similarity = similarity
                 most_similar_response = response
 
-        print(f"Similarity: {highest_similarity:.2%}")
+        print(f"Similarity: {similarity_percentage:.2%}")
         print(f"Distance: {distance}")
 
         return most_similar_response
