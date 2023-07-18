@@ -65,7 +65,7 @@ class IntentMatcher:
                     highest_similarity = similarity
                     most_similar_pattern = intent_class
 
-        print(f"Similarity: {similarity_percentage:.2%}")
+#        print(f"Similarity: {similarity_percentage:.2%}")
 
         if most_similar_pattern:
             highest_similarity = highest_similarity / 100
@@ -77,12 +77,15 @@ class IntentMatcher:
         input_string_lower = input_string.lower()
         highest_similarity = 0
         similarity_percentage = 0
+        distance = 0
         most_similar_response = None
 
         responses = intent_class["responses"] if intent_class else []
 
         for response in responses:
             similarity = 0
+            Count = 0
+            InputCount = 0
             response_lower = response.lower()
             word_list = self.tokenize(response_lower)
             new_list = []
@@ -103,24 +106,36 @@ class IntentMatcher:
 
             for word in word_list_2:
                 if word in word_list:
-                    similarity += 1
+            # Check if the word begins with a capital letter
+                    if word.istitle():
+                        similarity += 2  # Add 2 to the similarity for words with capital letters
+                    else:
+                        similarity += 1
+
+            response_words = self.tokenize(response)
+            input_words = self.tokenize(input_string)
+
+            for word in response_words:
+                Count += 0.01
+
+            for word in input_words:
+                InputCount += 0.01
+
+            distance = Count + InputCount / 2
+
+#            print(distance)
+
+            similarity = similarity - distance
+
+        # Calculate the similarity percentage and the distance
+            similarity_percentage = similarity / len(overall_word_list)  # Calculate average similarity
 
             if similarity > highest_similarity:
-                similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
                 highest_similarity = similarity
                 most_similar_response = response
 
-        print(f"Similarity: {similarity_percentage:.2%}")
-
-        # Convert most_similar_response back into the original string
-        for response in responses:
-            low_response_list = []
-            low_response = response.lower()
-            low_response_list = self.stem_sentence(low_response)
-
-            for low_response_word in low_response_list:
-                if low_response_word == most_similar_response:
-                    most_similar_response = response
+#        print(f"Similarity: {similarity_percentage:.2%}")
+#        print(f"Distance: {distance}")
 
         return most_similar_response
 
@@ -135,9 +150,10 @@ class IntentMatcher:
     def stem_sentence(self, input_string):
         word_list = input_string.split(" ")
         stemmed_words = []
+
         for input_word in word_list:
             word = self.stem(input_word)
-            stemmed_words.append(word)
+            stemmed_word.append(word)
 
         return stemmed_words
 
