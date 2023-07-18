@@ -110,18 +110,17 @@ class IntentMatcher:
                     else:
                         similarity += 1
 
+            distance = abs(len(response) - len(input_string)) / 1000
+
+            print(distance)
+
+            similarity = similarity + distance
+
         # Calculate the similarity percentage and the distance
             similarity_percentage = similarity / len(overall_word_list)  # Calculate average similarity
 
-        # Calculate the distance between response and input_string
-            distance = abs(len(response) - len(input_string))
-
-        # Combine similarity and distance with appropriate weights
-        # You can adjust the weights based on your preference
-            combined_similarity = 0.2 * similarity_percentage + 0.8 * (1 - distance / max(len(response), len(input_string)))
-
-            if combined_similarity > highest_similarity:
-                highest_similarity = combined_similarity
+            if similarity > highest_similarity:
+                highest_similarity = similarity
                 most_similar_response = response
 
         print(f"Similarity: {highest_similarity:.2%}")
