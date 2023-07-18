@@ -65,7 +65,7 @@ class IntentMatcher:
                     highest_similarity = similarity
                     most_similar_pattern = intent_class
 
-        print(f"Similarity: {similarity_percentage:.2%}")
+#        print(f"Similarity: {similarity_percentage:.2%}")
 
         if most_similar_pattern:
             highest_similarity = highest_similarity / 100
@@ -134,8 +134,8 @@ class IntentMatcher:
                 highest_similarity = similarity
                 most_similar_response = response
 
-        print(f"Similarity: {similarity_percentage:.2%}")
-        print(f"Distance: {distance}")
+#        print(f"Similarity: {similarity_percentage:.2%}")
+#        print(f"Distance: {distance}")
 
         return most_similar_response
 
