@@ -104,14 +104,16 @@ class IntentMatcher:
 
             for word in word_list_2:
                 if word in word_list:
-                # Check if the word begins with a capital letter
+            # Check if the word begins with a capital letter
                     if word.istitle():
                         similarity += 2  # Add 2 to the similarity for words with capital letters
                     else:
                         similarity += 1
 
         # Calculate the similarity percentage and the distance
-            similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
+            similarity_percentage = similarity / len(overall_word_list)  # Calculate average similarity
+
+        # Calculate the distance between response and input_string
             distance = abs(len(response) - len(input_string))
 
         # Combine similarity and distance with appropriate weights
@@ -138,9 +140,10 @@ class IntentMatcher:
     def stem_sentence(self, input_string):
         word_list = input_string.split(" ")
         stemmed_words = []
+
         for input_word in word_list:
             word = self.stem(input_word)
-            stemmed_words.append(word)
+            stemmed_word.append(word)
 
         return stemmed_words
 
