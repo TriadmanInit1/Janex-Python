@@ -56,7 +56,7 @@ To compare the input with the patterns from your intents.json storage file, you 
 ```
 intents_file_path = "intents.json"
 
-intent_class = matcher.pattern_compare(input_string, intents_file_path)
+intent_class, similarity = matcher.pattern_compare(input_string)
 
 print(intent_class)
 ```

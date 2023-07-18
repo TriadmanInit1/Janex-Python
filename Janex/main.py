@@ -77,6 +77,7 @@ class IntentMatcher:
         input_string_lower = input_string.lower()
         highest_similarity = 0
         similarity_percentage = 0
+        distance = 0
         most_similar_response = None
 
         responses = intent_class["responses"] if intent_class else []
@@ -103,24 +104,26 @@ class IntentMatcher:
 
             for word in word_list_2:
                 if word in word_list:
-                    similarity += 1
+                # Check if the word begins with a capital letter
+                    if word.istitle():
+                        similarity += 2  # Add 2 to the similarity for words with capital letters
+                    else:
+                        similarity += 1
 
-            if similarity > highest_similarity:
-                similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
-                highest_similarity = similarity
+        # Calculate the similarity percentage and the distance
+            similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
+            distance = abs(len(response) - len(input_string))
+
+        # Combine similarity and distance with appropriate weights
+        # You can adjust the weights based on your preference
+            combined_similarity = 0.2 * similarity_percentage + 0.8 * (1 - distance / max(len(response), len(input_string)))
+
+            if combined_similarity > highest_similarity:
+                highest_similarity = combined_similarity
                 most_similar_response = response
 
-        print(f"Similarity: {similarity_percentage:.2%}")
-
-        # Convert most_similar_response back into the original string
-        for response in responses:
-            low_response_list = []
-            low_response = response.lower()
-            low_response_list = self.stem_sentence(low_response)
-
-            for low_response_word in low_response_list:
-                if low_response_word == most_similar_response:
-                    most_similar_response = response
+        print(f"Similarity: {highest_similarity:.2%}")
+        print(f"Distance: {distance}")
 
         return most_similar_response
 
