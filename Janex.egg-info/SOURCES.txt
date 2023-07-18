@@ -1,6 +1,5 @@
 LICENSE
 README.md
-Setup.py
 setup.py
 Janex/__init__.py
 Janex/chat.py

@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: Janex
-Version: 0.0.7
+Version: 0.0.8b0
 Home-page: https://github.com/Cipher58
-Download-URL: https://github.com/Cipher58/Janex/
+Download-URL: https://github.com/Cipher58/Janex/archive/refs/tags/v0.0.2-beta.tar.gz
 Author: Cipher58
 Author-email: cipher58public@gmail.com
 License: Lily 1.0
@@ -69,7 +69,7 @@ To compare the input with the patterns from your intents.json storage file, you 
 ```
 intents_file_path = "intents.json"
 
-intent_class = matcher.pattern_compare(input_string, intents_file_path)
+intent_class, similarity = matcher.pattern_compare(input_string)
 
 print(intent_class)
 ```
