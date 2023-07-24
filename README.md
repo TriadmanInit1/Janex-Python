@@ -71,14 +71,21 @@ BestResponse = matcher.response_compare(input_string, intents_file_path, intent_
 print(BestResponse)
 ```
 
-<h5>Using Transformers:</h5>
+<h5>Text Generation</h5>
 
-I am still currently learning about complex mathematical Machine Learning algorithms, so the numpy-based transformers included in this project are still in development, and may not always be useful or stable for a while. If you would like to use them for whatever, here's an example.
+In experimental phase but included in 0.0.15 and above, the 'ResponseGenerator' function can absorb the response chosen by your response comparer from your intents.json file, and then modify it, replacing words with synonyms, to give it a more unscripted response.
+
+For this to be used, you will need to separately download the 'thesaurus.json' file from the Janex Github Repo, and place it into the folder which your chatbot is in, giving it a dataset to modify your response from.
+
+After doing so, you may include the feature in your code like this.
 
 ```
-output = matcher.Transform(input_string)
-print(output)
+generated_response = matcher.ResponseGenerator(response)
+
+print(generated_response)
 ```
+
+Warning: This feature is still work-in-progress, and will only be as effective per the size of your thesaurus file, so don't expect it to be fully stable until I have fully completed it. :)
 
 <h3> Functionality </h3>
 
