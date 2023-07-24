@@ -174,7 +174,7 @@ class IntentMatcher:
             for associate in thesaurus[word]["related"]:
                 random_newword = random.choice(thesaurus[word]["related"])
 
-        return random_newword    
+        return random_newword
 
     def ResponseGenerator(self, most_similar_response):
         thesaurus = self.load_thesaurus()
@@ -183,9 +183,10 @@ class IntentMatcher:
 
         for i, token in enumerate(tokens):
             for word in thesaurus:
-                if token == thesaurus[word]["synonyms"]:
-                    newword = self.SynonymCompare(word)
-                    tokens[i] = newword
+                for synonym in thesaurus[word]["synonyms"]:
+                    if token in synonym:
+                        newword = self.SynonymCompare(word)
+                        tokens[i] = newword
 
         generated_response = " ".join(tokens)
 
