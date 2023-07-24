@@ -1,4 +1,6 @@
 import json
+import random
+import os
 
 class IntentMatcher:
     def __init__(self, intents_file_path):
@@ -8,8 +10,6 @@ class IntentMatcher:
     def tokenize(self, input_string):
         processed_string = input_string.lower().strip().replace(r"[^\w\s]|_", "").replace(r"\s+", " ")
         words = processed_string.split(" ")
-
-        words = self.stem_list(words)
 
         return words
 
@@ -164,3 +164,40 @@ class IntentMatcher:
             stemmed_words.append(stemmed_word)
 
         return stemmed_words
+
+    # Experimental Development Zone
+
+    def SynonymCompare(self, word):
+        newword = None
+        thesaurus = self.load_thesaurus()
+        for synonym in thesaurus[word]["synonyms"]:
+            for associate in thesaurus[word]["related"]:
+                if synonym in associate:
+                    newword = associate
+
+        if newword is not None:
+            return newword
+        else:
+            random_newword = random.choice(thesaurus[word]["related"])
+            return random_newword
+
+    def ResponseGenerator(self, most_similar_response):
+        thesaurus = self.load_thesaurus()
+
+        tokens = self.tokenize(most_similar_response)
+
+        for i, token in enumerate(tokens):
+            for word in thesaurus:
+                if token in thesaurus[word]["synonyms"]:
+                    newword = self.SynonymCompare(word)
+                    tokens[i] = newword
+
+        generated_response = " ".join(tokens)
+
+        return generated_response
+
+    def load_thesaurus(self):
+        file_path = os.path.join(os.path.dirname(__file__), "thesaurus.json")
+        with open(file_path, "r") as f:
+            thesaurus = json.load(f)
+        return thesaurus
