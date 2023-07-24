@@ -80,7 +80,7 @@ For this to be used, you will need to separately download the 'thesaurus.json' f
 After doing so, you may include the feature in your code like this.
 
 ```
-generated_response = matcher.ResponseGenerator(response)
+generated_response = matcher.ResponseGenerator(BestResponse)
 
 print(generated_response)
 ```
