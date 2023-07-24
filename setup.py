@@ -8,12 +8,12 @@ setuptools.setup(
     name="Janex",
 
     # version of the module
-    version="0.0.11",
+    version="0.0.12",
 
     # Name of Author
     author="Cipher58",
 
-    download_url = 'https://github.com/Cipher58/Janex/',
+    download_url = 'https://github.com/Cipher58/Janex-Python.git',
 
     # your Email address
     author_email="cipher58public@gmail.com",
