@@ -172,14 +172,9 @@ class IntentMatcher:
         thesaurus = self.load_thesaurus()
         for synonym in thesaurus[word]["synonyms"]:
             for associate in thesaurus[word]["related"]:
-                if synonym in associate:
-                    newword = associate
+                random_newword = random.choice(thesaurus[word]["related"])
 
-        if newword is not None:
-            return newword
-        else:
-            random_newword = random.choice(thesaurus[word]["related"])
-            return random_newword
+        return random_newword    
 
     def ResponseGenerator(self, most_similar_response):
         thesaurus = self.load_thesaurus()
