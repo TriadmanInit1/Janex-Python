@@ -75,7 +75,7 @@ print(BestResponse)
 
 In experimental phase but included in 0.0.15 and above, the 'ResponseGenerator' function can absorb the response chosen by your response comparer from your intents.json file, and then modify it, replacing words with synonyms, to give it a more unscripted response.
 
-For this to be used, you will need to separately download the 'thesaurus.json' file from the Janex Github Repo, and place it into the folder which your chatbot is in, giving it a dataset to modify your response from.
+For this to be used, if you haven't got a thesaurus.json file already, the IntentMatcher will automatically download the pre-written example directly from Github and into your chatbot folder.
 
 After doing so, you may include the feature in your code like this.
 
