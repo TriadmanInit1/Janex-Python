@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Janex
-Version: 0.0.16a0
+Version: 0.0.16b0
 Home-page: https://github.com/Cipher58
 Download-URL: https://github.com/Cipher58/Janex-Python.git
 Author: Cipher58
@@ -83,7 +83,7 @@ BestResponse = matcher.response_compare(input_string, intents_file_path, intent_
 print(BestResponse)
 ```
 
-<h5>Text Generation</h5>
+<h5>Text Generation:</h5>
 
 In experimental phase but included in 0.0.15 and above, the 'ResponseGenerator' function can absorb the response chosen by your response comparer from your intents.json file, and then modify it, replacing words with synonyms, to give it a more unscripted response.
 
