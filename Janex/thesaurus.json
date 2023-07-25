@@ -246,5 +246,57 @@
   "assist": {
     "synonyms": ["help", "aid", "support", "aid", "abet"],
     "related": ["facilitate", "aid", "serve", "contribute", "back"]
+  },
+  "struggle": {
+    "synonyms": ["fight", "battle", "combat", "conflict", "strive"],
+    "related": ["endeavor", "grapple", "wrestle", "resist", "tussle"]
+  },
+  "victory": {
+    "synonyms": ["triumph", "success", "conquest", "achievement", "win"],
+    "related": ["glory", "triumph", "accomplishment", "triumph", "glorious"]
+  },
+  "defeat": {
+    "synonyms": ["failure", "loss", "conquer", "vanquish", "overcome"],
+    "related": ["ruin", "frustration", "overthrow", "failure", "collapse"]
+  },
+  "happy": {
+    "synonyms": ["joyful", "content", "pleased", "ecstatic", "elated", "happy"],
+    "related": ["cheerful", "delighted", "satisfied", "blissful", "jubilant"]
+  },
+  "grief": {
+    "synonyms": ["sorrow", "heartache", "anguish", "mourning", "bereavement"],
+    "related": ["sadness", "misery", "pain", "suffering", "desolation"]
+  },
+  "courage": {
+    "synonyms": ["bravery", "valor", "fearlessness", "daring", "heroism"],
+    "related": ["fortitude", "boldness", "gallantry", "courageousness", "nerve"]
+  },
+  "fear": {
+    "synonyms": ["dread", "anxiety", "terror", "apprehension", "phobia"],
+    "related": ["fright", "alarm", "horror", "panic", "trepidation"]
+  },
+  "love": {
+    "synonyms": ["affection", "passion", "adoration", "devotion", "fondness"],
+    "related": ["care", "attachment", "emotion", "infatuation", "ardor"]
+  },
+  "hate": {
+    "synonyms": ["detest", "despise", "abhor", "loathe", "dislike"],
+    "related": ["abomination", "aversion", "repulsion", "hostility", "revulsion"]
+  },
+  "learn": {
+    "synonyms": ["study", "acquire", "grasp", "comprehend", "understand"],
+    "related": ["educate", "train", "absorb", "assimilate", "master"]
+  },
+  "teach": {
+    "synonyms": ["instruct", "educate", "train", "tutor", "coach"],
+    "related": ["mentor", "guide", "enlighten", "impart", "edify"]
+  },
+  "begin": {
+    "synonyms": ["start", "commence", "initiate", "originate", "inaugurate"],
+    "related": ["embark", "kick off", "commence", "proceed", "undertake"]
+  },
+  "end": {
+    "synonyms": ["conclude", "terminate", "finish", "complete", "cease"],
+    "related": ["halt", "wrap up", "finalize", "culminate", "draw to a close"]
   }
 }
