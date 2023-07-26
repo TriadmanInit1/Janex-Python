@@ -1,302 +1,266 @@
 {
   "happy": {
-    "synonyms": ["joyful", "content", "pleased", "ecstatic", "elated", "happy"],
-    "related": ["cheerful", "delighted", "satisfied", "blissful", "jubilant"]
+    "synonyms": ["joyful", "content", "pleased", "ecstatic", "elated", "happy"]
   },
   "sad": {
-    "synonyms": ["unhappy", "miserable", "depressed", "heartbroken", "gloomy", "sad"],
-    "related": ["melancholy", "dismal", "downhearted", "despondent", "despairing"]
+    "synonyms": ["unhappy", "miserable", "depressed", "heartbroken", "gloomy", "sad"]
   },
   "beautiful": {
-    "synonyms": ["gorgeous", "stunning", "lovely", "attractive", "charming"],
-    "related": ["elegant", "mesmerizing", "exquisite", "enchanting", "radiant"]
+    "synonyms": ["gorgeous", "stunning", "lovely", "attractive", "charming"]
   },
   "angry": {
-    "synonyms": ["furious", "irate", "outraged", "indignant", "incensed"],
-    "related": ["enraged", "fuming", "infuriated", "livid", "exasperated"]
+    "synonyms": ["furious", "irate", "outraged", "indignant", "incensed"]
   },
   "brave": {
-    "synonyms": ["courageous", "fearless", "valiant", "heroic", "daring"],
-    "related": ["bold", "gallant", "fear-defying", "intrepid", "valorous"]
+    "synonyms": ["courageous", "fearless", "valiant", "heroic", "daring"]
   },
   "fast": {
-    "synonyms": ["quick", "speedy", "rapid", "swift", "expeditious"],
-    "related": ["hasty", "fleet", "brisk", "accelerated", "nimble"]
+    "synonyms": ["quick", "speedy", "rapid", "swift", "expeditious"]
   },
   "small": {
-    "synonyms": ["tiny", "little", "miniature", "minute", "compact"],
-    "related": ["petite", "diminutive", "microscopic", "undersized", "wee"]
+    "synonyms": ["tiny", "little", "miniature", "minute", "compact"]
   },
   "big": {
-    "synonyms": ["large", "huge", "enormous", "gigantic", "massive"],
-    "related": ["immense", "colossal", "vast", "monumental", "tremendous"]
+    "synonyms": ["large", "huge", "enormous", "gigantic", "massive"]
   },
   "good": {
-    "synonyms": ["excellent", "superb", "wonderful", "terrific", "fantastic", "good"],
-    "related": ["great", "awesome", "outstanding", "amazing", "splendid", "wonderful"]
+    "synonyms": ["excellent", "superb", "wonderful", "terrific", "fantastic", "good"]
   },
   "bad": {
-    "synonyms": ["terrible", "horrible", "awful", "dreadful", "atrocious"],
-    "related": ["abysmal", "appalling", "disastrous", "lousy", "woeful"]
+    "synonyms": ["terrible", "horrible", "awful", "dreadful", "atrocious"]
   },
   "smart": {
-    "synonyms": ["intelligent", "clever", "wise", "bright", "brilliant"],
-    "related": ["knowledgeable", "astute", "sharp", "savvy", "perceptive"]
+    "synonyms": ["intelligent", "clever", "wise", "bright", "brilliant"]
   },
   "funny": {
-    "synonyms": ["humorous", "amusing", "comical", "hilarious", "witty"],
-    "related": ["entertaining", "jovial", "jocular", "lighthearted", "mirthful"]
+    "synonyms": ["humorous", "amusing", "comical", "hilarious", "witty"]
   },
   "difficult": {
-    "synonyms": ["challenging", "hard", "complicated", "complex", "tricky"],
-    "related": ["demanding", "arduous", "strenuous", "problematic", "daunting"]
+    "synonyms": ["challenging", "hard", "complicated", "complex", "tricky"]
   },
   "more": {
-    "synonyms": ["more", "extra", "else"],
-    "related": ["further", "furthermore", "extra", "even more", "additional"]
+    "synonyms": ["more", "extra", "else", "further", "furthermore", "extra", "even more", "additional"]
   },
   "say": {
-    "synonyms": ["say", "speaks"],
-    "related": ["state", "say", "assert"]
+    "synonyms": ["say", "speaks", "state", "say", "assert"]
   },
   "strong": {
-    "synonyms": ["powerful", "robust", "sturdy", "mighty", "potent"],
-    "related": ["forceful", "vigorous", "resilient", "unyielding", "indomitable"]
+    "synonyms": ["powerful", "robust", "sturdy", "mighty", "potent"]
   },
   "kind": {
-    "synonyms": ["compassionate", "benevolent", "generous", "considerate", "thoughtful"],
-    "related": ["gentle", "sympathetic", "empathetic", "caring", "tender"]
+    "synonyms": ["compassionate", "benevolent", "generous", "considerate", "thoughtful"]
   },
   "cold": {
-    "synonyms": ["chilly", "freezing", "frigid", "icy", "frosty"],
-    "related": ["cool", "numb", "polar", "subzero", "wintry"]
+    "synonyms": ["chilly", "freezing", "frigid", "icy", "frosty"]
   },
   "hot": {
-    "synonyms": ["sweltering", "scorching", "sizzling", "boiling", "burning"],
-    "related": ["sultry", "torrid", "blistering", "fiery", "heated"]
+    "synonyms": ["sweltering", "scorching", "sizzling", "boiling", "burning"]
   },
   "tired": {
-    "synonyms": ["exhausted", "weary", "fatigued", "drained", "spent"],
-    "related": ["drowsy", "sleepy", "worn-out", "enervated", "frazzled"]
+    "synonyms": ["exhausted", "weary", "fatigued", "drained", "spent"]
   },
   "calm": {
-    "synonyms": ["serene", "tranquil", "peaceful", "composed", "placid"],
-    "related": ["relaxed", "untroubled", "undisturbed", "soothing", "mellow"]
-  },
-  "happy": {
-    "synonyms": ["joyful", "content", "pleased", "ecstatic", "elated", "happy"],
-    "related": ["cheerful", "delighted", "satisfied", "blissful", "jubilant"]
+    "synonyms": ["serene", "tranquil", "peaceful", "composed", "placid"]
   },
   "afraid": {
-    "synonyms": ["scared", "frightened", "terrified", "nervous", "anxious"],
-    "related": ["apprehensive", "panicked", "worried", "fearful", "jittery"]
+    "synonyms": ["scared", "frightened", "terrified", "nervous", "anxious"]
   },
   "honest": {
-    "synonyms": ["truthful", "sincere", "upright", "genuine", "honorable"],
-    "related": ["trustworthy", "faithful", "reliable", "scrupulous", "loyal"]
+    "synonyms": ["truthful", "sincere", "upright", "genuine", "honorable"]
   },
   "bright": {
-    "synonyms": ["luminous", "radiant", "brilliant", "shining", "gleaming"],
-    "related": ["vivid", "glowing", "dazzling", "beaming", "glittering"]
+    "synonyms": ["luminous", "radiant", "brilliant", "shining", "gleaming"]
   },
   "shy": {
-    "synonyms": ["bashful", "timid", "reserved", "reticent", "introverted"],
-    "related": ["modest", "coy", "nervous", "hesitant", "self-effacing"]
+    "synonyms": ["bashful", "timid", "reserved", "reticent", "introverted"]
   },
   "sick": {
-    "synonyms": ["ill", "unwell", "ailing", "infirmed", "under the weather"],
-    "related": ["weak", "queasy", "indisposed", "vomiting", "feverish"]
+    "synonyms": ["ill", "unwell", "ailing", "infirmed", "under the weather"]
   },
   "quiet": {
-    "synonyms": ["silent", "peaceful", "serene", "hushed", "muted"],
-    "related": ["tranquil", "calm", "noiseless", "still", "muffled"]
+    "synonyms": ["silent", "peaceful", "serene", "hushed", "muted"]
   },
   "excited": {
-    "synonyms": ["thrilled", "enthusiastic", "eager", "animated", "jubilant"],
-    "related": ["ecstatic", "elated", "rapturous", "exhilarated", "passionate"]
+    "synonyms": ["thrilled", "enthusiastic", "eager", "animated", "jubilant"]
   },
   "tasty": {
-    "synonyms": ["delicious", "savory", "appetizing", "delectable", "yummy"],
-    "related": ["flavorful", "palatable", "scrumptious", "mouthwatering", "tantalizing"]
-  },
-  "beautiful": {
-    "synonyms": ["gorgeous", "stunning", "lovely", "attractive", "charming"],
-    "related": ["elegant", "mesmerizing", "exquisite", "enchanting", "radiant"]
-  },
-  "angry": {
-    "synonyms": ["furious", "irate", "outraged", "indignant", "incensed"],
-    "related": ["enraged", "fuming", "infuriated", "livid", "exasperated"]
+    "synonyms": ["delicious", "savory", "appetizing", "delectable", "yummy"]
   },
   "vast": {
-    "synonyms": ["enormous", "immense", "boundless", "expansive", "limitless"],
-    "related": ["gigantic", "colossal", "massive", "huge", "tremendous"]
+    "synonyms": ["enormous", "immense", "boundless", "expansive", "limitless"]
   },
   "loud": {
-    "synonyms": ["noisy", "boisterous", "cacophonous", "blaring", "deafening"],
-    "related": ["clamorous", "raucous", "thunderous", "uproarious", "piercing"]
-  },
-  "happy": {
-    "synonyms": ["joyful", "content", "pleased", "ecstatic", "elated", "happy"],
-    "related": ["cheerful", "delighted", "satisfied", "blissful", "jubilant"]
-  },
-  "sad": {
-    "synonyms": ["unhappy", "miserable", "depressed", "heartbroken", "gloomy"],
-    "related": ["melancholy", "dismal", "downhearted", "despondent", "despairing"]
-  },
-  "hot": {
-    "synonyms": ["sweltering", "scorching", "sizzling", "boiling", "burning"],
-    "related": ["sultry", "torrid", "blistering", "fiery", "heated"]
-  },
-  "bright": {
-    "synonyms": ["luminous", "radiant", "brilliant", "shining", "gleaming"],
-    "related": ["vivid", "glowing", "dazzling", "beaming", "glittering"]
+    "synonyms": ["noisy", "boisterous", "cacophonous", "blaring", "deafening"]
   },
   "strange": {
-    "synonyms": ["unusual", "peculiar", "odd", "bizarre", "weird"],
-    "related": ["curious", "abnormal", "mysterious", "eccentric", "quirky"]
+    "synonyms": ["unusual", "peculiar", "odd", "bizarre", "weird"]
   },
   "empty": {
-    "synonyms": ["vacant", "void", "bare", "deserted", "unoccupied"],
-    "related": ["hollow", "barren", "desolate", "devoid", "blank"]
+    "synonyms": ["vacant", "void", "bare", "deserted", "unoccupied"]
   },
   "calm": {
-    "synonyms": ["serene", "tranquil", "peaceful", "composed", "placid"],
-    "related": ["relaxed", "untroubled", "undisturbed", "soothing", "mellow"]
+    "synonyms": ["serene", "tranquil", "peaceful", "composed", "placid"]
   },
   "cold": {
-    "synonyms": ["chilly", "freezing", "frigid", "icy", "frosty"],
-    "related": ["cool", "numb", "polar", "subzero", "wintry"]
+    "synonyms": ["chilly", "freezing", "frigid", "icy", "frosty"]
   },
   "long": {
-    "synonyms": ["lengthy", "extended", "prolonged", "endless", "never-ending"],
-    "related": ["long-lasting", "lingering", "continual", "interminable", "eternal"]
+    "synonyms": ["lengthy", "extended", "prolonged", "endless", "never-ending"]
   },
   "short": {
-    "synonyms": ["brief", "concise", "succinct", "compact", "abrupt"],
-    "related": ["quick", "fleeting", "transient", "momentary", "ephemeral"]
+    "synonyms": ["brief", "concise", "succinct", "compact", "abrupt"]
   },
   "tall": {
-    "synonyms": ["high", "towering", "elevated", "lofty", "giant"],
-    "related": ["statuesque", "sky-scraping", "majestic", "colossal", "immense"]
+    "synonyms": ["high", "towering", "elevated", "lofty", "giant"]
   },
   "wet": {
-    "synonyms": ["damp", "moist", "drenched", "soggy", "soaked"],
-    "related": ["humid", "watery", "drizzly", "sopping", "saturated"]
+    "synonyms": ["damp", "moist", "drenched", "soggy", "soaked"]
   },
   "dry": {
-    "synonyms": ["arid", "parched", "thirsty", "barren", "dehydrated"],
-    "related": ["bone-dry", "deserted", "waterless", "sterile", "drought-stricken"]
+    "synonyms": ["arid", "parched", "thirsty", "barren", "dehydrated"]
   },
   "rich": {
-    "synonyms": ["wealthy", "affluent", "prosperous", "opulent", "well-to-do"],
-    "related": ["abundant", "plentiful", "loaded", "well-off", "moneyed"]
+    "synonyms": ["wealthy", "affluent", "prosperous", "opulent", "well-to-do"]
   },
   "poor": {
-    "synonyms": ["impoverished", "destitute", "needy", "indigent", "deprived"],
-    "related": ["penurious", "broke", "bankrupt", "struggling", "impecunious"]
+    "synonyms": ["impoverished", "destitute", "needy", "indigent", "deprived"]
   },
   "old": {
-    "synonyms": ["elderly", "aged", "mature", "vintage", "senior"],
-    "related": ["ancient", "antique", "time-worn", "hoary", "time-honored"]
+    "synonyms": ["elderly", "aged", "mature", "vintage", "senior"]
   },
   "new": {
-    "synonyms": ["fresh", "novel", "innovative", "modern", "contemporary"],
-    "related": ["recent", "current", "up-to-date", "unfamiliar", "state-of-the-art"]
+    "synonyms": ["fresh", "novel", "innovative", "modern", "contemporary"]
   },
   "old-fashioned": {
-    "synonyms": ["outdated", "antiquated", "obsolete", "vintage", "archaic"],
-    "related": ["retro", "dated", "bygone", "old-school", "nostalgic"]
+    "synonyms": ["outdated", "antiquated", "obsolete", "vintage", "archaic"]
   },
   "modern": {
-    "synonyms": ["contemporary", "up-to-date", "current", "innovative", "progressive", "modern"],
-    "related": ["advanced", "futuristic", "trendy", "cutting-edge", "state-of-the-art"]
+    "synonyms": ["contemporary", "up-to-date", "current", "innovative", "progressive", "modern"]
   },
   "brilliant": {
-    "synonyms": ["dazzling", "radiant", "shining", "glittering", "glowing", "brilliant"],
-    "related": ["sparkling", "vivid", "resplendent", "luminous", "effulgent"]
+    "synonyms": ["dazzling", "radiant", "shining", "glittering", "glowing", "brilliant"]
   },
   "stupid": {
-    "synonyms": ["foolish", "idiotic", "dim-witted", "dense", "dull"],
-    "related": ["dumb", "silly", "brain-dead", "ignorant", "imbecilic"]
+    "synonyms": ["foolish", "idiotic", "dim-witted", "dense", "dull"]
   },
   "simple": {
-    "synonyms": ["easy", "uncomplicated", "straightforward", "plain", "basic"],
-    "related": ["elementary", "effortless", "undemanding", "uninvolved", "uncomplicated"]
+    "synonyms": ["easy", "uncomplicated", "straightforward", "plain", "basic"]
   },
   "complex": {
-    "synonyms": ["complicated", "intricate", "involved", "elaborate", "multi-faceted"],
-    "related": ["difficult", "convoluted", "intricate", "perplexing", "challenging"]
+    "synonyms": ["complicated", "intricate", "involved", "elaborate", "multi-faceted"]
   },
   "expensive": {
-    "synonyms": ["costly", "pricey", "high-priced", "lavish", "valuable"],
-    "related": ["luxurious", "premium", "extravagant", "exorbitant", "sumptuous"]
+    "synonyms": ["costly", "pricey", "high-priced", "lavish", "valuable"]
   },
   "cheap": {
-    "synonyms": ["inexpensive", "affordable", "low-cost", "economical", "bargain"],
-    "related": ["budget-friendly", "reasonable", "thrifty", "cost-effective", "economy"]
+    "synonyms": ["inexpensive", "affordable", "low-cost", "economical", "bargain"]
   },
   "dangerous": {
-    "synonyms": ["hazardous", "risky", "perilous", "treacherous", "unsafe"],
-    "related": ["life-threatening", "unsafe", "precarious", "life-endangering", "reckless"]
+    "synonyms": ["hazardous", "risky", "perilous", "treacherous", "unsafe"]
   },
   "safe": {
-    "synonyms": ["secure", "protected", "harmless", "unhurt", "untouched"],
-    "related": ["out of danger", "secure", "shielded", "guarded", "unscathed"]
+    "synonyms": ["secure", "protected", "harmless", "unhurt", "untouched"]
   },
   "assist": {
-    "synonyms": ["help", "aid", "support", "aid", "abet"],
-    "related": ["facilitate", "aid", "serve", "contribute", "back"]
+    "synonyms": ["help", "aid", "support", "aid", "abet"]
   },
   "struggle": {
-    "synonyms": ["fight", "battle", "combat", "conflict", "strive"],
-    "related": ["endeavor", "grapple", "wrestle", "resist", "tussle"]
+    "synonyms": ["fight", "battle", "combat", "conflict", "strive"]
   },
   "victory": {
-    "synonyms": ["triumph", "success", "conquest", "achievement", "win"],
-    "related": ["glory", "triumph", "accomplishment", "triumph", "glorious"]
+    "synonyms": ["triumph", "success", "conquest", "achievement", "win"]
   },
   "defeat": {
-    "synonyms": ["failure", "loss", "conquer", "vanquish", "overcome"],
-    "related": ["ruin", "frustration", "overthrow", "failure", "collapse"]
+    "synonyms": ["failure", "loss", "conquer", "vanquish", "overcome"]
   },
   "happy": {
-    "synonyms": ["joyful", "content", "pleased", "ecstatic", "elated", "happy"],
-    "related": ["cheerful", "delighted", "satisfied", "blissful", "jubilant"]
+    "synonyms": ["joyful", "content", "pleased", "ecstatic", "elated", "happy"]
   },
   "grief": {
-    "synonyms": ["sorrow", "heartache", "anguish", "mourning", "bereavement", "grief"],
-    "related": ["sadness", "misery", "pain", "suffering", "desolation"]
+    "synonyms": ["sorrow", "heartache", "anguish", "mourning", "bereavement", "grief"]
   },
   "courage": {
-    "synonyms": ["bravery", "valor", "fearlessness", "daring", "heroism"],
-    "related": ["fortitude", "boldness", "gallantry", "courageousness", "nerve"]
+    "synonyms": ["bravery", "valor", "fearlessness", "daring", "heroism"]
   },
   "fear": {
-    "synonyms": ["dread", "anxiety", "terror", "apprehension", "phobia"],
-    "related": ["fright", "alarm", "horror", "panic", "trepidation"]
+    "synonyms": ["dread", "anxiety", "terror", "apprehension", "phobia"]
   },
   "love": {
-    "synonyms": ["affection", "passion", "adoration", "devotion", "fondness", "love"],
-    "related": ["care", "attachment", "emotion", "infatuation", "ardor"]
+    "synonyms": ["affection", "passion", "adoration", "devotion", "fondness", "love"]
   },
   "hate": {
-    "synonyms": ["detest", "despise", "abhor", "loathe", "dislike", "hate"],
-    "related": ["abomination", "aversion", "repulsion", "hostility", "revulsion"]
+    "synonyms": ["detest", "despise", "abhor", "loathe", "dislike", "hate"]
   },
   "learn": {
-    "synonyms": ["study", "acquire", "grasp", "comprehend", "understand"],
-    "related": ["educate", "train", "absorb", "assimilate", "master"]
+    "synonyms": ["study", "acquire", "grasp", "comprehend", "understand"]
   },
   "teach": {
-    "synonyms": ["instruct", "educate", "train", "tutor", "coach", "teach"],
-    "related": ["mentor", "guide", "enlighten", "impart", "edify"]
+    "synonyms": ["instruct", "educate", "train", "tutor", "coach", "teach"]
   },
   "begin": {
-    "synonyms": ["start", "commence", "initiate", "originate", "inaugurate", "begin"],
-    "related": ["embark", "kick off", "commence", "proceed", "undertake"]
+    "synonyms": ["start", "commence", "initiate", "originate", "inaugurate", "begin"]
   },
   "end": {
-    "synonyms": ["conclude", "terminate", "finish", "complete", "cease", "end"],
-    "related": ["halt", "wrap up", "finalize", "culminate", "draw to a close"]
+    "synonyms": ["conclude", "terminate", "finish", "complete", "cease", "end"]
+  },
+  "positive": {
+    "synonyms": ["yes", "positive", "affirmative", "correct"]
+  },
+  "negative": {
+    "synonyms": ["no", "negative", "incorrect", "untrue", "false"]
+  },
+  "identify": {
+    "synonyms": ["call me", "refer to me as", "name me", "my name is"]
+  },
+  "progress": {
+    "synonyms": ["development", "progress", "upgrade", "future"]
+  },
+  "clever": {
+    "synonyms": ["intelligent", "smart", "bright", "sharp", "brilliant"]
+  },
+  "foolish": {
+    "synonyms": ["stupid", "dull", "idiotic", "silly", "unwise"]
+  },
+  "riches": {
+    "synonyms": ["wealth", "prosperity", "abundance", "affluence", "opulence"]
+  },
+  "poverty": {
+    "synonyms": ["destitution", "neediness", "impoverishment", "lack", "hardship"]
+  },
+  "ancient": {
+    "synonyms": ["old", "antique", "prehistoric", "archaic", "historic"]
+  },
+  "modern": {
+    "synonyms": ["contemporary", "up-to-date", "current", "innovative", "progressive"]
+  },
+  "destroy": {
+    "synonyms": ["ruin", "demolish", "annihilate", "devastate", "obliterate"]
+  },
+  "create": {
+    "synonyms": ["produce", "generate", "invent", "fashion", "form"]
+  },
+  "attractive": {
+    "synonyms": ["appealing", "captivating", "charming", "alluring", "enticing"]
+  },
+  "repulsive": {
+    "synonyms": ["disgusting", "hideous", "revolting", "offensive", "vile"]
+  },
+  "ancient": {
+    "synonyms": ["old", "antique", "prehistoric", "archaic", "historic"]
+  },
+  "modern": {
+    "synonyms": ["contemporary", "up-to-date", "current", "innovative", "progressive"]
+  },
+  "destroy": {
+    "synonyms": ["ruin", "demolish", "annihilate", "devastate", "obliterate"]
+  },
+  "create": {
+    "synonyms": ["produce", "generate", "invent", "fashion", "form"]
+  },
+  "attractive": {
+    "synonyms": ["appealing", "captivating", "charming", "alluring", "enticing"]
+  },
+  "repulsive": {
+    "synonyms": ["disgusting", "hideous", "revolting", "offensive", "vile"]
   }
 }

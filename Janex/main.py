@@ -41,9 +41,9 @@ class IntentMatcher:
         for intent_class in self.intents["intents"]:
             overall_word_list = []
             similarity = 0
+            word_list = []
 
             for pattern in intent_class["patterns"]:
-                word_list = []
                 pattern_lower = pattern.lower()
                 word_list = self.tokenize(pattern_lower)
                 overall_word_list.append(word_list)
@@ -149,8 +149,6 @@ class IntentMatcher:
 #        print(f"Similarity: {similarity_percentage:.2%}")
 #        print(f"Distance: {distance}")
 
-
-
     def stem(self, input_word):
         suffixes = ["ing", "ly", "ed", "es", "'s", "er", "est", "y", "ily", "able", "ful", "ness", "less", "ment", "ive", "ize", "ous"]
         for suffix in suffixes:
@@ -183,8 +181,7 @@ class IntentMatcher:
         newword = None
         thesaurus = self.load_thesaurus()
         for synonym in thesaurus[word]["synonyms"]:
-            for associate in thesaurus[word]["related"]:
-                random_newword = random.choice(thesaurus[word]["related"])
+            random_newword = random.choice(thesaurus[word]["synonyms"])
 
         return random_newword
 
@@ -199,14 +196,6 @@ class IntentMatcher:
                     length = self.measure_letters(token)
                     if length > 3:
                         if token in synonym:
-                            newword = self.SynonymCompare(word)
-                            tokens[i] = newword
-                    else:
-                        pass
-                for relation in thesaurus[word]["related"]:
-                    length = self.measure_letters(token)
-                    if length > 3:
-                        if token in relation:
                             newword = self.SynonymCompare(word)
                             tokens[i] = newword
                     else:
