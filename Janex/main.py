@@ -23,8 +23,13 @@ class IntentMatcher:
         return token_words
 
     def train(self):
-        with open(self.intents_file_path, "r") as file:
-            intents = json.load(file)
+        try:
+            with open(self.intents_file_path, "r") as file:
+                intents = json.load(file)
+        except:
+            os.system("curl -o intents.json https://raw.githubusercontent.com/SoapDoesCode/36KB-intents-file/main/intents.json")
+            with open(self.intents_file_path, "r") as file:
+                intents = json.load(file)
         return intents
 
     def pattern_compare(self, input_string):

@@ -29,7 +29,7 @@ from Janex import *
 
 <h5>Create an instance</h5>
 
-Before anything else, you need to create an instance of the IntentMatcher class.
+Before anything else, you need to create an instance of the IntentMatcher class. (If you do not have one made already, the program will automatically download a pre-written file created by @SoapDoesCode - big thanks to her for their intents file!)
 
 ```
 intents_file_path = "./intents.json"
@@ -86,6 +86,13 @@ print(generated_response)
 ```
 
 Warning: This feature is still work-in-progress, and will only be as effective per the size of your thesaurus file, so don't expect it to be fully stable until I have fully completed it. :)
+
+<h3> Contributors </h3>
+
+Many thanks to these Github developers for their contributions! :)
+
+@Ethan-Barr
+@SoapDoesCode
 
 <h3> Functionality </h3>
 
