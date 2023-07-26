@@ -9,7 +9,17 @@ class IntentMatcher:
         self.intents = self.train()
 
     def tokenize(self, input_string):
-        processed_string = input_string.lower().strip().replace(r"[^\w\s]|_", "").replace(r"\s+", " ")
+        new_string = ""
+
+        deletion = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+
+        input_string = input_string.lower()
+        
+        for x in input_string:
+            if x not in deletion:
+                new_string += x
+
+        processed_string = new_string
         words = processed_string.split(" ")
 
         return words

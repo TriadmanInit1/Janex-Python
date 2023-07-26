@@ -265,5 +265,8 @@
   },
   "help": {
     "synonyms": ["assist", "contribute to", "help with", "serve", "provide help with", "provide assistance with"]
+  },
+  "opening": {
+    "synonyms": ["opening up", "starting", "starting up", "beginning", "running", "activating", "initialising"]
   }
 }
