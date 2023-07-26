@@ -190,19 +190,15 @@ class IntentMatcher:
 
         tokens = self.tokenize(most_similar_response)
 
+        thes_words = self.extract_titles()
+
         for i, token in enumerate(tokens):
-            for word in thesaurus:
-                for synonym in thesaurus[word]["synonyms"]:
-                    length = self.measure_letters(token)
-                    if length > 3:
-                        if token in synonym:
-                            newword = self.SynonymCompare(word)
-                            tokens[i] = newword
-                    titles = self.extract_titles()
-                    for title in titles:
-                        if title in tokens:
-                            newword = self.SynonymCompare(word)
-                            tokens[i] = newword
+            for word in thes_words:
+                word = word.lower()
+                if token == word:
+                    syns = thesaurus[word]["synonyms"]
+                    new_word = random.choice(syns)
+                    tokens[i] = new_word
 
         generated_response = " ".join(tokens)
 

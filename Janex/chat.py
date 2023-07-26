@@ -8,14 +8,14 @@ input_string = input("You: ")
 intent_class, percentage = matcher.pattern_compare(input_string)
 response = matcher.response_compare(input_string, intent_class)
 
-try:
-    generated_response = matcher.ResponseGenerator(response)
-except:
-    pass
+#try:
+generated_response = matcher.ResponseGenerator(response)
+#except:
+#    pass
 
 print(response)
 
-try:
-    print(generated_response)
-except:
-    pass
+#try:
+print(generated_response)
+#except:
+#    pass
