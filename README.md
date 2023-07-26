@@ -96,10 +96,11 @@ Many thanks to these Github developers for their contributions! :)
 
 <h3> Functionality </h3>
 
-<h4>Version 0.0.15</h4>
+<h4>Version 0.0.17</h4>
 
 - Word tokenizer ✓
 - Intent classifier ✓
 - Word Stemmer ✓
 - Support for Darwin, Linux (GNU) and Windows ✓
 - Custom Response Generator (development stage) ✓
+- Automatic intents & thesaurus builders ✓
