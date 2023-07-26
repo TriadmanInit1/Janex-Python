@@ -268,5 +268,8 @@
   },
   "opening": {
     "synonyms": ["opening up", "starting", "starting up", "beginning", "running", "activating", "initialising"]
+  },
+  "boss": {
+    "synonyms": ["pal", "bossman", "my friend", "my pal"]
   }
 }

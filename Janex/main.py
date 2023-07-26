@@ -14,7 +14,7 @@ class IntentMatcher:
         deletion = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 
         input_string = input_string.lower()
-        
+
         for x in input_string:
             if x not in deletion:
                 new_string += x
@@ -209,6 +209,14 @@ class IntentMatcher:
                     syns = thesaurus[word]["synonyms"]
                     new_word = random.choice(syns)
                     tokens[i] = new_word
+
+                syns = thesaurus[word]["synonyms"]
+
+                for synonym in syns:
+                    if token == synonym:
+                        syns = thesaurus[word]["synonyms"]
+                        new_word = random.choice(syns)
+                        tokens[i] = new_word
 
         generated_response = " ".join(tokens)
 
