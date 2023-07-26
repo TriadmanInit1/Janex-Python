@@ -262,5 +262,8 @@
   },
   "repulsive": {
     "synonyms": ["disgusting", "hideous", "revolting", "offensive", "vile"]
+  },
+  "help": {
+    "synonyms": ["assist", "contribute to", "help with", "serve", "provide help with", "provide assistance with"]
   }
 }

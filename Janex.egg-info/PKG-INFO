@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: Janex
-Version: 0.0.17
-Home-page: https://github.com/Cipher58
+Version: 0.0.19
+Home-page: https://github.com/Cipher58/Janex-Python
 Download-URL: https://github.com/Cipher58/Janex-Python.git
 Author: Cipher58
 Author-email: cipher58public@gmail.com
@@ -9,6 +9,7 @@ License: Lily 1.0
 Classifier: Programming Language :: Python :: 3
 Classifier: Operating System :: OS Independent
 Description-Content-Type: text/markdown
+License-File: LICENSE
 
 # Janex
 A free open-source framework which can be used to build Machine Learning tools, LLMs, and Natural Language Processing scripts with full simplicity.
@@ -108,10 +109,11 @@ Many thanks to these Github developers for their contributions! :)
 
 <h3> Functionality </h3>
 
-<h4>Version 0.0.15</h4>
+<h4>Version 0.0.17</h4>
 
 - Word tokenizer ✓
 - Intent classifier ✓
 - Word Stemmer ✓
 - Support for Darwin, Linux (GNU) and Windows ✓
 - Custom Response Generator (development stage) ✓
+- Automatic intents & thesaurus builders ✓
