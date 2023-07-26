@@ -8,7 +8,7 @@ setuptools.setup(
     name="Janex",
 
     # version of the module
-    version="0.0.16",
+    version="0.0.18",
 
     # Name of Author
     author="Cipher58",
@@ -28,7 +28,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
 
     # Any link to reach this module, ***if*** you have any webpage or github profile
-    url="https://github.com/Cipher58",
+    url="https://github.com/Cipher58/Janex-Python",
 
     packages=setuptools.find_packages(),
 

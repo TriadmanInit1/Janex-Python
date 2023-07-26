@@ -3,13 +3,19 @@ from main import *
 intents_file_path = "./intents.json"
 matcher = IntentMatcher(intents_file_path)
 
-user_input = input("You: ")
+input_string = input("You: ")
 
-intent_class, percentage = matcher.pattern_compare(user_input)
-response = matcher.response_compare(user_input, intent_class)
+intent_class, percentage = matcher.pattern_compare(input_string)
+response = matcher.response_compare(input_string, intent_class)
 
-generated_response = matcher.ResponseGenerator(response)
+try:
+    generated_response = matcher.ResponseGenerator(response)
+except:
+    pass
 
 print(response)
 
-print(generated_response)
+try:
+    print(generated_response)
+except:
+    pass

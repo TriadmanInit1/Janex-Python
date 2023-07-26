@@ -27,13 +27,13 @@ class IntentMatcher:
             with open(self.intents_file_path, "r") as file:
                 intents = json.load(file)
         except:
-            os.system("curl -o intents.json https://raw.githubusercontent.com/SoapDoesCode/36KB-intents-file/main/intents.json")
+            print(f"Janex: '{self.intents_file_path}' file does not appear to exist in your program's directory. Downloading default template, courtesy of SoapDoesCode...")
+            os.system(f"curl -o {self.intents_file_path} https://raw.githubusercontent.com/SoapDoesCode/36KB-intents-file/main/intents.json")
             with open(self.intents_file_path, "r") as file:
                 intents = json.load(file)
         return intents
 
     def pattern_compare(self, input_string):
-        input_string_lower = input_string.lower()
         highest_similarity = 0
         most_similar_pattern = None
         similarity_percentage = 0
@@ -54,7 +54,7 @@ class IntentMatcher:
                     word = self.stem(word)
                     new_list.append(word)
 
-                word_list_2 = self.tokenize(input_string_lower)
+                word_list_2 = self.tokenize(input_string)
                 for word in word_list_2:
                     word = self.stem(word)
                     new_bag.append(word)
@@ -80,7 +80,6 @@ class IntentMatcher:
             raise ValueError("No matching intent class found.")
 
     def response_compare(self, input_string, intent_class):
-        input_string_lower = input_string.lower()
         highest_similarity = 0
         similarity_percentage = 0
         distance = 0
@@ -101,7 +100,7 @@ class IntentMatcher:
                 word = self.stem(word)
                 new_list.append(word)
 
-            word_list_2 = self.tokenize(input_string_lower)
+            word_list_2 = self.tokenize(input_string)
             for word in word_list_2:
                 word = self.stem(word)
                 new_bag.append(word)
@@ -140,10 +139,17 @@ class IntentMatcher:
                 highest_similarity = similarity
                 most_similar_response = response
 
+
+        if most_similar_response:
+            return most_similar_response
+        else:
+            most_similar_response = random.choice(responses)
+            return most_similar_response
+
 #        print(f"Similarity: {similarity_percentage:.2%}")
 #        print(f"Distance: {distance}")
 
-        return most_similar_response
+
 
     def stem(self, input_word):
         suffixes = ["ing", "ly", "ed", "es", "'s", "er", "est", "y", "ily", "able", "ful", "ness", "less", "ment", "ive", "ize", "ous"]
@@ -216,6 +222,8 @@ class IntentMatcher:
             with open(file_path, "r") as f:
                 thesaurus = json.load(f)
         except:
+
+            print(f"Janex: 'thesaurus.json' file does not appear to exist in your program's directory. Downloading default template...")
             os.system("curl -o thesaurus.json https://raw.githubusercontent.com/Cipher58/Janex-Python/main/Janex/thesaurus.json")
 
             with open(file_path, "r") as f:
@@ -225,7 +233,11 @@ class IntentMatcher:
 
     def update_thesaurus(self):
         file_path = "thesaurus.json"
-        os.remove("thesaurus.json")
+        try:
+            os.remove("thesaurus.json")
+        except:
+            print(f"Janex: 'thesaurus.json' file does not appear to exist in your program's directory. Skipping deletion...")
+
         os.system("curl -o thesaurus.json https://raw.githubusercontent.com/Cipher58/Janex-Python/main/Janex/thesaurus.json")
 
         with open(file_path, "r") as f:
