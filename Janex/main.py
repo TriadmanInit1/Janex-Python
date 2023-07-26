@@ -198,8 +198,11 @@ class IntentMatcher:
                         if token in synonym:
                             newword = self.SynonymCompare(word)
                             tokens[i] = newword
-                    else:
-                        pass
+                    titles = self.extract_titles()
+                    for title in titles:
+                        if title in tokens:
+                            newword = self.SynonymCompare(word)
+                            tokens[i] = newword
 
         generated_response = " ".join(tokens)
 
@@ -236,3 +239,17 @@ class IntentMatcher:
 
     def measure_letters(self, input_string):
         return sum(char.isalpha() for char in input_string)
+
+    def read_class_titles(self):
+        with open("thesaurus.json", "r") as file:
+            data = json.load(file)
+        class_titles = list(data.keys())
+        return class_titles
+
+    def extract_titles(self):
+        titlelist = []
+        class_titles = self.read_class_titles()
+        for title in class_titles:
+            titlelist.append(title)
+
+        return titlelist
