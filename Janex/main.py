@@ -185,7 +185,7 @@ class IntentMatcher:
         for i, token in enumerate(tokens):
             for word in thesaurus:
                 for synonym in thesaurus[word]["synonyms"]:
-                    length = self.cunt_letters(token)
+                    length = self.measure_letters(token)
                     if length > 3:
                         if token in synonym:
                             newword = self.SynonymCompare(word)
@@ -193,7 +193,7 @@ class IntentMatcher:
                     else:
                         pass
                 for relation in thesaurus[word]["related"]:
-                    length = self.cunt_letters(token)
+                    length = self.measure_letters(token)
                     if length > 3:
                         if token in relation:
                             newword = self.SynonymCompare(word)
@@ -218,5 +218,15 @@ class IntentMatcher:
 
         return thesaurus
 
-    def cunt_letters(self, input_string):
+    def update_thesaurus(self):
+        file_path = "thesaurus.json"
+        os.remove("thesaurus.json")
+        os.system("curl -o thesaurus.json https://raw.githubusercontent.com/Cipher58/Janex-Python/main/Janex/thesaurus.json")
+
+        with open(file_path, "r") as f:
+            thesaurus = json.load(f)
+
+        return thesaurus
+
+    def measure_letters(self, input_string):
         return sum(char.isalpha() for char in input_string)

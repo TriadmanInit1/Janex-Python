@@ -4,7 +4,7 @@
     "related": ["cheerful", "delighted", "satisfied", "blissful", "jubilant"]
   },
   "sad": {
-    "synonyms": ["unhappy", "miserable", "depressed", "heartbroken", "gloomy"],
+    "synonyms": ["unhappy", "miserable", "depressed", "heartbroken", "gloomy", "sad"],
     "related": ["melancholy", "dismal", "downhearted", "despondent", "despairing"]
   },
   "beautiful": {
@@ -264,7 +264,7 @@
     "related": ["cheerful", "delighted", "satisfied", "blissful", "jubilant"]
   },
   "grief": {
-    "synonyms": ["sorrow", "heartache", "anguish", "mourning", "bereavement"],
+    "synonyms": ["sorrow", "heartache", "anguish", "mourning", "bereavement", "grief"],
     "related": ["sadness", "misery", "pain", "suffering", "desolation"]
   },
   "courage": {
@@ -276,11 +276,11 @@
     "related": ["fright", "alarm", "horror", "panic", "trepidation"]
   },
   "love": {
-    "synonyms": ["affection", "passion", "adoration", "devotion", "fondness"],
+    "synonyms": ["affection", "passion", "adoration", "devotion", "fondness", "love"],
     "related": ["care", "attachment", "emotion", "infatuation", "ardor"]
   },
   "hate": {
-    "synonyms": ["detest", "despise", "abhor", "loathe", "dislike"],
+    "synonyms": ["detest", "despise", "abhor", "loathe", "dislike", "hate"],
     "related": ["abomination", "aversion", "repulsion", "hostility", "revulsion"]
   },
   "learn": {
@@ -288,15 +288,15 @@
     "related": ["educate", "train", "absorb", "assimilate", "master"]
   },
   "teach": {
-    "synonyms": ["instruct", "educate", "train", "tutor", "coach"],
+    "synonyms": ["instruct", "educate", "train", "tutor", "coach", "teach"],
     "related": ["mentor", "guide", "enlighten", "impart", "edify"]
   },
   "begin": {
-    "synonyms": ["start", "commence", "initiate", "originate", "inaugurate"],
+    "synonyms": ["start", "commence", "initiate", "originate", "inaugurate", "begin"],
     "related": ["embark", "kick off", "commence", "proceed", "undertake"]
   },
   "end": {
-    "synonyms": ["conclude", "terminate", "finish", "complete", "cease"],
+    "synonyms": ["conclude", "terminate", "finish", "complete", "cease", "end"],
     "related": ["halt", "wrap up", "finalize", "culminate", "draw to a close"]
   }
 }
