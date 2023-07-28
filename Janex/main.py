@@ -131,12 +131,17 @@ class IntentMatcher:
             input_words = self.tokenize(input_string)
 
             for word in response_words:
-                Count += 0.01
+                Count += self.measure_letters(word)
 
             for word in input_words:
-                InputCount += 0.01
+                InputCount += self.measure_letters(word)
 
             distance = Count + InputCount / 2
+
+            if Count > InputCount:
+                distance = Count - InputCount
+            else:
+                distance = InputCount - Count
 
 #            print(distance)
 
