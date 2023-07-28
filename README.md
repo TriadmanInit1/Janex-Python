@@ -37,6 +37,12 @@ intents_file_path = "./intents.json"
 matcher = IntentMatcher(intents_file_path)
 ```
 
+Optional: If you would like to update your thesaurus to your most recent pre-written file, then you can add this code to check for new versions and to download them. Be careful though, this function removes your thesaurus file, which means any unsaved data which doesn't exist on the pre-written file will be erased. (But could possibly be restored in your bin directory)
+
+```
+matcher.update_thesaurus()
+```
+
 <h5>Tokenizing:</h5>
 
 To utilise the tokenizer feature, here is an example of how it can be used.

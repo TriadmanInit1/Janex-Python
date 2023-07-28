@@ -38,7 +38,7 @@ class IntentMatcher:
                 intents = json.load(file)
         except:
             print(f"Janex: '{self.intents_file_path}' file does not appear to exist in your program's directory. Downloading default template, courtesy of SoapDoesCode...")
-            os.system(f"curl -o {self.intents_file_path} https://raw.githubusercontent.com/SoapDoesCode/36KB-intents-file/main/intents.json")
+            os.system(f"curl -o {self.intents_file_path} https://raw.githubusercontent.com/Cipher58/intents-file/main/intents.json")
             with open(self.intents_file_path, "r") as file:
                 intents = json.load(file)
         return intents
@@ -230,7 +230,7 @@ class IntentMatcher:
         except:
 
             print(f"Janex: 'thesaurus.json' file does not appear to exist in your program's directory. Downloading default template...")
-            os.system("curl -o thesaurus.json https://raw.githubusercontent.com/Cipher58/Janex-Python/main/Janex/thesaurus.json")
+            os.system("curl -o thesaurus.json https://raw.githubusercontent.com/Cipher58/intents-file/main/thesaurus.json")
 
             with open(file_path, "r") as f:
                 thesaurus = json.load(f)
@@ -244,7 +244,7 @@ class IntentMatcher:
         except:
             print(f"Janex: 'thesaurus.json' file does not appear to exist in your program's directory. Skipping deletion...")
 
-        os.system("curl -o thesaurus.json https://raw.githubusercontent.com/Cipher58/Janex-Python/main/Janex/thesaurus.json")
+        os.system("curl -o thesaurus.json https://raw.githubusercontent.com/Cipher58/intents-file/main/thesaurus.json")
 
         with open(file_path, "r") as f:
             thesaurus = json.load(f)
