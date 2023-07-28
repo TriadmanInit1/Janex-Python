@@ -123,9 +123,9 @@ class IntentMatcher:
                 if word in word_list:
             # Check if the word begins with a capital letter
                     if word.istitle():
-                        similarity += 2  # Add 2 to the similarity for words with capital letters
+                        similarity += 200  # Add 2 to the similarity for words with capital letters
                     else:
-                        similarity += 1
+                        similarity += 100
 
             response_words = self.tokenize(response)
             input_words = self.tokenize(input_string)
