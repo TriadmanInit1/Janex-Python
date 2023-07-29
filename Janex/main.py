@@ -2,6 +2,7 @@ import json
 import random
 import os
 import string
+from Cipher import *
 
 class IntentMatcher:
     def __init__(self, intents_file_path):
@@ -272,3 +273,13 @@ class IntentMatcher:
             titlelist.append(title)
 
         return titlelist
+
+    def Encrypt(self, text):
+        encryptor = Cipher(256)
+        encrypted_text = encryptor.simple_xor_encrypt(text)
+        return encrypted_text
+
+    def Decrypt(self, text):
+        decryptor = Cipher(256)
+        decrypted_text = decryptor.simple_xor_decrypt(text)
+        return decrypted_text

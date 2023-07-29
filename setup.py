@@ -8,7 +8,7 @@ setuptools.setup(
     name="Janex",
 
     # version of the module
-    version="0.0.24b",
+    version="0.0.28",
 
     # Name of Author
     author="Cipher58",
@@ -37,8 +37,7 @@ setuptools.setup(
     # then you must add there, in order to download every requirement of package
 
     install_requires=[
-          "numpy",
-        "torch",
+        "CipherProgram",
         ],
 
 
