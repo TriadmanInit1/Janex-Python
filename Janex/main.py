@@ -239,50 +239,26 @@ class IntentMatcher:
 
         thesaurus = self.load_thesaurus()
 
-        tokens = self.tokenize(most_similar_response)
-
         thes_words = self.extract_titles()
 
-        for i, token in enumerate(tokens):
-            for word in thes_words:
-                word = word.lower()
-                if token == word:
-                    syns = thesaurus[word]["synonyms"]
-                    new_word = random.choice(syns)
-                    if tokens[i].istitle():
-                        new_word = new_word[:1].upper() + new_word[1:]
-                    for x in deletion:
-                        if tokens[i].endswith(x):
-                            new_word = f"{new_word}{x}"
-                            break
-                    tokens[i] = new_word
+        most_similar_response_splitted = []
 
-                syns = thesaurus[word]["synonyms"]
+        most_similar_response_splitted = most_similar_response.split(" ")
 
-                for synonym in syns:
-                    if token == synonym:
-                        syns = thesaurus[word]["synonyms"]
+        for word in thes_words:
+            syns = thesaurus[word]["synonyms"]
+            for syn in syns:
+                for element in most_similar_response_splitted:
+                    if syn.lower() in element.lower():
                         new_word = random.choice(syns)
-                        if tokens[i].istitle():
-                            new_word = new_word[1:].upper() + new_word[:1]
                         for x in deletion:
-                            if tokens[i].endswith(x):
+                            if element.endswith(x):
                                 new_word = f"{new_word}{x}"
-                                break
-                        tokens[i] = new_word
+                        if element.istitle():
+                            new_word = new_word[:1].upper() + new_word[1:]
+                        most_similar_response = most_similar_response.replace(element, new_word)
 
-        generated_response = " ".join(tokens)
-
-        ogtokens = most_similar_response.split(" ")
-
-        for ogtoken in ogtokens:
-            for x in deletion:
-                if ogtoken.endswith(x):
-                    for token in tokens:
-                        if token in ogtoken:
-                            generated_response = generated_response.replace(token, token+x)
-
-        generated_response = (f"{generated_response[:1].upper() + generated_response[1:]}")
+        generated_response = most_similar_response
 
         return generated_response
 
