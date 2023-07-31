@@ -249,6 +249,9 @@ class IntentMatcher:
                 if token == word:
                     syns = thesaurus[word]["synonyms"]
                     new_word = random.choice(syns)
+                    for x in deletion:
+                        if token.endswith(x):
+                            new_word = new_word + x
                     tokens[i] = new_word
 
                 syns = thesaurus[word]["synonyms"]
@@ -257,6 +260,9 @@ class IntentMatcher:
                     if token == synonym:
                         syns = thesaurus[word]["synonyms"]
                         new_word = random.choice(syns)
+                        for x in deletion:
+                            if token.endswith(x):
+                                new_word = new_word + x
                         tokens[i] = new_word
 
         generated_response = " ".join(tokens)
