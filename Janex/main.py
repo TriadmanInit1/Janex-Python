@@ -49,6 +49,7 @@ class IntentMatcher:
         highest_similarity = 0
         most_similar_pattern = None
         similarity_percentage = 0
+        letters_full = self.letter_splitter(input_string)
 
         for intent_class in self.intents["intents"]:
             overall_word_list = []
@@ -162,7 +163,18 @@ class IntentMatcher:
         if most_similar_response:
             return most_similar_response
         else:
-            most_similar_response = random.choice(responses)
+            highest_similarity = 0
+            for response in intent_class["responses"]:
+                similarity = 0
+                input_chars = self.letter_splitter(input_string)
+                output_chars = self.letter_splitter(response)
+                for a in input_chars:
+                    if a in output_chars:
+                        similarity =+ 1
+                        if similarity > highest_similarity:
+                            most_similar_response = response
+                            highest_similarity = similarity
+
             return most_similar_response
 
 #        print(f"Similarity: {similarity_percentage:.2%}")
@@ -284,3 +296,12 @@ class IntentMatcher:
         decryptor = Cipher(256)
         decrypted_text = decryptor.simple_xor_decrypt(text)
         return decrypted_text
+
+    def letter_splitter(self, input_text):
+        letters_in_order = []
+        for char in input_text:
+            letters_in_order.append(char)
+
+#        print(letters_in_order)
+
+        return letters_in_order

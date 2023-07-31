@@ -1,7 +1,9 @@
 from main import *
 
 intents_file_path = "./intents.json"
-matcher = IntentMatcher(intents_file_path)
+thesaurus_file_path = "./thesaurus.json"
+
+matcher = IntentMatcher(intents_file_path, thesaurus_file_path)
 
 input_string = input("You: ")
 
