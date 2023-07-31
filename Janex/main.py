@@ -233,7 +233,7 @@ class IntentMatcher:
 
     def ResponseGenerator(self, most_similar_response):
 
-        deletion = '''!()-[]{};:'"\,<>./?@#$%^&*_~ '''
+        deletion = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 
         punctuation = self.template(most_similar_response)
 
@@ -249,9 +249,12 @@ class IntentMatcher:
                 if token == word:
                     syns = thesaurus[word]["synonyms"]
                     new_word = random.choice(syns)
+                    if tokens[i].istitle():
+                        new_word = new_word[:1].upper() + new_word[1:]
                     for x in deletion:
-                        if token.endswith(x):
-                            new_word = new_word + x
+                        if tokens[i].endswith(x):
+                            new_word = f"{new_word}{x}"
+                            break
                     tokens[i] = new_word
 
                 syns = thesaurus[word]["synonyms"]
@@ -260,9 +263,12 @@ class IntentMatcher:
                     if token == synonym:
                         syns = thesaurus[word]["synonyms"]
                         new_word = random.choice(syns)
+                        if tokens[i].istitle():
+                            new_word = new_word[1:].upper() + new_word[:1]
                         for x in deletion:
-                            if token.endswith(x):
-                                new_word = new_word + x
+                            if tokens[i].endswith(x):
+                                new_word = f"{new_word}{x}"
+                                break
                         tokens[i] = new_word
 
         generated_response = " ".join(tokens)
@@ -275,11 +281,6 @@ class IntentMatcher:
                     for token in tokens:
                         if token in ogtoken:
                             generated_response = generated_response.replace(token, token+x)
-
-        for x in deletion:
-            if most_similar_response.endswith(x):
-                if not generated_response.endswith(x):
-                    generated_response = generated_response + x
 
         generated_response = (f"{generated_response[:1].upper() + generated_response[1:]}")
 
