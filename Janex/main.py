@@ -261,9 +261,18 @@ class IntentMatcher:
 
         generated_response = " ".join(tokens)
 
-        for x in deletion:
-            if most_similar_response.endswith(x):
-                generated_response = generated_response + x
+        ogtokens = most_similar_response.split(" ")
+
+        for ogtoken in ogtokens:
+            for x in deletion:
+                if ogtoken.endswith(x):
+                    for token in tokens:
+                        if token in ogtoken:
+                            generated_response = generated_response.replace(token, token+x)
+
+#        for x in deletion:
+#            if most_similar_response.endswith(x):
+#                generated_response = generated_response + x
 
         generated_response = (f"{generated_response[:1].upper() + generated_response[1:]}")
 
