@@ -270,9 +270,10 @@ class IntentMatcher:
                         if token in ogtoken:
                             generated_response = generated_response.replace(token, token+x)
 
-#        for x in deletion:
-#            if most_similar_response.endswith(x):
-#                generated_response = generated_response + x
+        for x in deletion:
+            if most_similar_response.endswith(x):
+                if not generated_response.endswith(x):
+                    generated_response = generated_response + x
 
         generated_response = (f"{generated_response[:1].upper() + generated_response[1:]}")
 
