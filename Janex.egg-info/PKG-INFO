@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Janex
-Version: 0.0.28
+Version: 0.0.34
 Home-page: https://github.com/Cipher58/Janex-Python
 Download-URL: https://github.com/Cipher58/Janex-Python.git
 Author: Cipher58
@@ -47,7 +47,9 @@ Before anything else, you need to create an instance of the IntentMatcher class.
 ```
 intents_file_path = "./intents.json"
 
-matcher = IntentMatcher(intents_file_path)
+thesaurus_file_path = "./thesaurus.json"
+
+matcher = IntentMatcher(intents_file_path, thesaurus_file_path)
 ```
 
 Optional: If you would like to update your thesaurus to your most recent pre-written file, then you can add this code to check for new versions and to download them. Be careful though, this function removes your thesaurus file, which means any unsaved data which doesn't exist on the pre-written file will be erased. (But could possibly be restored in your bin directory)
@@ -73,8 +75,6 @@ print(words)
 To compare the input with the patterns from your intents.json storage file, you have to declare the intents file path.
 
 ```
-intents_file_path = "intents.json"
-
 intent_class, similarity = matcher.pattern_compare(input_string)
 
 print(intent_class)
@@ -85,7 +85,7 @@ print(intent_class)
 Sometimes a list of responses in a class can become varied in terms of context, and so in order to get the best possible response, we can use the 'responsecompare' function to compare the input string with your list of responses.
 
 ```
-BestResponse = matcher.response_compare(input_string, intents_file_path, intent_class)
+BestResponse = matcher.response_compare(input_string, intent_class)
 
 print(BestResponse)
 ```

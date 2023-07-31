@@ -5,9 +5,10 @@ import string
 from Cipher import *
 
 class IntentMatcher:
-    def __init__(self, intents_file_path):
+    def __init__(self, intents_file_path, thesaurus_file_path):
         self.intents_file_path = intents_file_path
         self.intents = self.train()
+        self.thesaurus_file_path = thesaurus_file_path
 
     def tokenize(self, input_string):
         new_string = ""
@@ -75,7 +76,8 @@ class IntentMatcher:
 
                 for word in word_list_2:
                     if word in word_list:
-                        similarity += 1
+                        length = self.measure_letters(word)
+                        similarity += length
 
                 if similarity > highest_similarity:
                     similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
@@ -122,11 +124,12 @@ class IntentMatcher:
 
             for word in word_list_2:
                 if word in word_list:
+                    length = self.measure_letters(word)
             # Check if the word begins with a capital letter
                     if word.istitle():
-                        similarity += 200  # Add 2 to the similarity for words with capital letters
+                        similarity += length*2  # Add 2 to the similarity for words with capital letters
                     else:
-                        similarity += 100
+                        similarity += length
 
             response_words = self.tokenize(response)
             input_words = self.tokenize(input_string)
@@ -229,30 +232,28 @@ class IntentMatcher:
         return generated_response
 
     def load_thesaurus(self):
-        file_path = "thesaurus.json"
         try:
-            with open(file_path, "r") as f:
+            with open(self.thesaurus_file_path, "r") as f:
                 thesaurus = json.load(f)
         except:
 
-            print(f"Janex: 'thesaurus.json' file does not appear to exist in your program's directory. Downloading default template...")
-            os.system("curl -o thesaurus.json https://raw.githubusercontent.com/Cipher58/intents-file/main/thesaurus.json")
+            print(f"Janex: '{self.thesaurus_file_path}' file does not appear to exist in your program's directory. Downloading default template...")
+            os.system(f"curl -o {self.thesaurus_file_path} https://raw.githubusercontent.com/Cipher58/intents-file/main/thesaurus.json")
 
-            with open(file_path, "r") as f:
+            with open(thesaurus_file_path, "r") as f:
                 thesaurus = json.load(f)
 
         return thesaurus
 
     def update_thesaurus(self):
-        file_path = "thesaurus.json"
         try:
-            os.remove("thesaurus.json")
+            os.remove(f"{self.thesaurus_file_path}")
         except:
-            print(f"Janex: 'thesaurus.json' file does not appear to exist in your program's directory. Skipping deletion...")
+            print(f"Janex: '{self.thesaurus_file_path}' file does not appear to exist in your program's directory. Skipping deletion...")
 
-        os.system("curl -o thesaurus.json https://raw.githubusercontent.com/Cipher58/intents-file/main/thesaurus.json")
+        os.system(f"curl -o {self.thesaurus_file_path} https://raw.githubusercontent.com/Cipher58/intents-file/main/thesaurus.json")
 
-        with open(file_path, "r") as f:
+        with open(self.thesaurus_file_path, "r") as f:
             thesaurus = json.load(f)
 
         return thesaurus
@@ -261,7 +262,7 @@ class IntentMatcher:
         return sum(char.isalpha() for char in input_string)
 
     def read_class_titles(self):
-        with open("thesaurus.json", "r") as file:
+        with open(f"{self.thesaurus_file_path}", "r") as file:
             data = json.load(file)
         class_titles = list(data.keys())
         return class_titles
