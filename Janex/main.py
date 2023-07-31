@@ -91,7 +91,22 @@ class IntentMatcher:
             highest_similarity = highest_similarity / 100
             return most_similar_pattern, highest_similarity
         else:
-            raise ValueError("No matching intent class found.")
+            highest_similarity = 0
+            for intent_class in self.intents["intents"]:
+                similarity = 0
+                for pattern in intent_class["patterns"]:
+                    input_chars = self.letter_splitter(input_string)
+                    output_chars = self.letter_splitter(pattern)
+                    for a in input_chars:
+                        if a in output_chars:
+                            similarity =+ 1
+                            if similarity > highest_similarity:
+                                similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
+                                most_similar_pattern = pattern
+                                highest_similarity = similarity
+                                most_similar_class = intent_class
+
+            return most_similar_class, highest_similarity
 
     def response_compare(self, input_string, intent_class):
         highest_similarity = 0
@@ -217,6 +232,11 @@ class IntentMatcher:
         return random_newword
 
     def ResponseGenerator(self, most_similar_response):
+
+        deletion = '''!()-[]{};:'"\,<>./?@#$%^&*_~ '''
+
+        punctuation = self.template(most_similar_response)
+
         thesaurus = self.load_thesaurus()
 
         tokens = self.tokenize(most_similar_response)
@@ -241,7 +261,28 @@ class IntentMatcher:
 
         generated_response = " ".join(tokens)
 
+        for x in deletion:
+            if most_similar_response.endswith(x):
+                generated_response = generated_response + x
+
+        generated_response = (f"{generated_response[:1].upper() + generated_response[1:]}")
+
         return generated_response
+
+    def template(self, input_string):
+
+        newtemplate = []
+        deletion = '''!()-[]{};:'"\,<>./?@#$%^&*_~ '''
+
+        for x in input_string:
+            if x not in deletion:
+                newtemplate += "╔"
+            elif x in deletion:
+                newtemplate += x
+
+#        print(newtemplate)
+
+        return newtemplate
 
     def load_thesaurus(self):
         try:
