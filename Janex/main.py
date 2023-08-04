@@ -9,6 +9,20 @@ class IntentMatcher:
         self.intents_file_path = intents_file_path
         self.intents = self.train()
         self.thesaurus_file_path = thesaurus_file_path
+        self.sentenceconstructors = [
+            "also", "moreover", "besides", "however", "nevertheless", "thus", "therefore", "meanwhile", "furthermore",
+            "nonetheless", "likewise", "similarly", "otherwise", "instead", "consequently", "hence", "otherwise", "because",
+            "since", "although", "though", "unless", "until", "when", "while", "whereas", "inasmuch", "after", "before", "if",
+            "then", "lest", "provided", "once", "whenever", "wherever", "notwithstanding", "hitherto", "nowadays", "henceforth"
+            "meanwhile", "thereupon", "whereupon", "notably", "indeed", "further", "more", "too", "very", "quite", "almost",
+            "entirely", "just", "simply", "nearly", "actually", "truly", "really", "certainly", "well", "just", "almost",
+            "perhaps", "maybe", "probably", "possibly", "certainly", "definitely", "undoubtedly", "clearly", "obviously",
+            "honestly", "seriously", "basically", "essentially", "specifically", "particularly", "practically", "literally",
+            "generally", "typically", "currently", "recently", "previously", "originally", "officially", "apparently", "finally",
+            "subsequently", "immediately", "gradually", "significantly", "considerably", "respectively", "similarly",
+            "notably", "likewise", "comparatively", "overall", "therefore", "consequently", "accordingly", "meanwhile"
+            ]
+
 
     def tokenize(self, input_string):
         new_string = ""
@@ -57,7 +71,8 @@ class IntentMatcher:
             word_list = []
 
             for pattern in intent_class["patterns"]:
-                pattern_lower = pattern.lower()
+                pattern_lower = str(pattern)
+                pattern_lower = pattern_lower.lower()
                 word_list = self.tokenize(pattern_lower)
                 overall_word_list.append(word_list)
                 new_list = []
@@ -77,8 +92,12 @@ class IntentMatcher:
 
                 for word in word_list_2:
                     if word in word_list:
-                        length = self.measure_letters(word)
-                        similarity += length
+                        if word.lower() in self.sentenceconstructors:
+                            length = self.measure_letters(word)
+                            similarity += length
+                        else:
+                            length = self.measure_letters(word)
+                            similarity =+ length*2
 
                 if similarity > highest_similarity:
                     similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
@@ -143,9 +162,11 @@ class IntentMatcher:
                     length = self.measure_letters(word)
             # Check if the word begins with a capital letter
                     if word.istitle():
-                        similarity += length*2  # Add 2 to the similarity for words with capital letters
+                        similarity += length*3
+                    elif word.lower() in self.sentenceconstructors:
+                        similarity += length  # Add 2 to the similarity for words with capital letters
                     else:
-                        similarity += length
+                        similarity += length*2
 
             response_words = self.tokenize(response)
             input_words = self.tokenize(input_string)
@@ -284,9 +305,9 @@ class IntentMatcher:
         except:
 
             print(f"Janex: '{self.thesaurus_file_path}' file does not appear to exist in your program's directory. Downloading default template...")
-            os.system(f"curl -o {self.thesaurus_file_path} https://raw.githubusercontent.com/Cipher58/intents-file/main/thesaurus.json")
+            self.download_thesaurus()
 
-            with open(thesaurus_file_path, "r") as f:
+            with open(self.thesaurus_file_path, "r") as f:
                 thesaurus = json.load(f)
 
         return thesaurus
@@ -297,12 +318,15 @@ class IntentMatcher:
         except:
             print(f"Janex: '{self.thesaurus_file_path}' file does not appear to exist in your program's directory. Skipping deletion...")
 
-        os.system(f"curl -o {self.thesaurus_file_path} https://raw.githubusercontent.com/Cipher58/intents-file/main/thesaurus.json")
+        self.download_thesaurus()
 
         with open(self.thesaurus_file_path, "r") as f:
             thesaurus = json.load(f)
 
         return thesaurus
+
+    def download_thesaurus(self):
+        os.system(f"curl -o {self.thesaurus_file_path} https://raw.githubusercontent.com/Cipher58/intents-file/main/thesaurus.json")
 
     def measure_letters(self, input_string):
         return sum(char.isalpha() for char in input_string)
@@ -320,16 +344,6 @@ class IntentMatcher:
             titlelist.append(title)
 
         return titlelist
-
-    def Encrypt(self, text):
-        encryptor = Cipher(256)
-        encrypted_text = encryptor.simple_xor_encrypt(text)
-        return encrypted_text
-
-    def Decrypt(self, text):
-        decryptor = Cipher(256)
-        decrypted_text = decryptor.simple_xor_decrypt(text)
-        return decrypted_text
 
     def letter_splitter(self, input_text):
         letters_in_order = []
