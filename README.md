@@ -9,6 +9,11 @@ These businesses go on to sell their research to the Government, and sell access
 
 Released under the **new** Free Lily License 1.0, Janex will improve and become a useful tool for users to conduct their own research in the potential of Artifical Intelligence.
 
+If you want to use a more heavyweight but more accurate version of Janex, I would recommend using Janex: PyTorch Edition, which uses Neural Network techniques from PyTorch and NLTK to enhance the prediction accuracy.
+```
+https://pypi.org/project/JanexPT/0.0.1/#files
+```
+
 <h3> How to use </h3>
 
 <h5> Adding to your project </h5>
