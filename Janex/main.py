@@ -102,13 +102,14 @@ class IntentMatcher:
                 if similarity > highest_similarity:
                     similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
                     highest_similarity = similarity
-                    most_similar_pattern = intent_class
+                    most_similar_pattern = pattern
+                    most_similar_class = intent_class
 
 #        print(f"Similarity: {similarity_percentage:.2%}")
 
         if most_similar_pattern:
             highest_similarity = highest_similarity / 100
-            return most_similar_pattern, highest_similarity
+            return most_similar_class, highest_similarity
         else:
             highest_similarity = 0
             for intent_class in self.intents["intents"]:
