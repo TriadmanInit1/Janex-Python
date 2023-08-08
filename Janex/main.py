@@ -271,7 +271,14 @@ class IntentMatcher:
             syns = thesaurus[word]["synonyms"]
             for syn in syns:
                 for element in most_similar_response_splitted:
-                    if syn.lower() in element.lower():
+                    syn = str(syn)
+                    element = str(element)
+                    for x in deletion:
+                        if x in syn:
+                            syn = syn.replace(x, "")
+                        if x in element:
+                            element = element.replace(x, "")
+                    if syn.lower() == element.lower():
                         new_word = random.choice(syns)
                         for x in deletion:
                             if element.endswith(x):
