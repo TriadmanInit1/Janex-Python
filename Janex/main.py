@@ -137,85 +137,80 @@ class IntentMatcher:
         responses = intent_class["responses"] if intent_class else []
 
         for response in responses:
-            similarity = 0
-            Count = 0
-            InputCount = 0
-            response_lower = response.lower()
-            word_list = self.tokenize(response_lower)
-            new_list = []
-            new_bag = []
-
-            for word in word_list:
-                word = self.stem(word)
-                new_list.append(word)
-
-            word_list_2 = self.tokenize(input_string)
-            for word in word_list_2:
-                word = self.stem(word)
-                new_bag.append(word)
-
-            word_list = new_list
-            word_list_2 = new_bag
-            overall_word_list = word_list + word_list_2
-
-            for word in word_list_2:
-                if word in word_list:
-                    length = self.measure_letters(word)
-            # Check if the word begins with a capital letter
-                    if word.istitle():
-                        similarity += length*3
-                    elif word.lower() in self.sentenceconstructors:
-                        similarity += length  # Add 2 to the similarity for words with capital letters
-                    else:
-                        similarity += length*2
-
-            response_words = self.tokenize(response)
-            input_words = self.tokenize(input_string)
-
-            for word in response_words:
-                Count += self.measure_letters(word)
-
-            for word in input_words:
-                InputCount += self.measure_letters(word)
-
-            distance = Count + InputCount / 2
-
-            if Count > InputCount:
-                distance = Count - InputCount
-            else:
-                distance = InputCount - Count
-
-#            print(distance)
-
-            similarity = similarity - distance
-
-        # Calculate the similarity percentage and the distance
-            similarity_percentage = similarity / len(overall_word_list)  # Calculate average similarity
-
-            if similarity > highest_similarity:
-                highest_similarity = similarity
-                most_similar_response = response
-
-
-        if most_similar_response:
-            return most_similar_response
-        else:
-            highest_similarity = 0
-            for response in intent_class["responses"]:
+            if response:
                 similarity = 0
-                input_chars = self.letter_splitter(input_string)
-                output_chars = self.letter_splitter(response)
-                for a in input_chars:
-                    if a in output_chars:
-                        similarity =+ 1
-                        if similarity > highest_similarity:
-                            most_similar_response = response
-                            highest_similarity = similarity
+                Count = 0
+                InputCount = 0
 
-            return most_similar_response
+                response_lower = response.lower()
+                word_list = self.tokenize(response_lower)
+                new_list = []
+                new_bag = []
 
-#        print(f"Similarity: {similarity_percentage:.2%}")
-#        print(f"Distance: {distance}")
+                for word in word_list:
+                    word = self.stem(word)
+                    new_list.append(word)
+
+                word_list_2 = self.tokenize(input_string)
+                for word in word_list_2:
+                    word = self.stem(word)
+                    new_bag.append(word)
+
+                word_list = new_list
+                word_list_2 = new_bag
+                overall_word_list = word_list + word_list_2
+
+                for word in word_list_2:
+                    if word in word_list:
+                        length = self.measure_letters(word)
+                        # Check if the word begins with a capital letter
+                        if word.istitle():
+                            similarity += length*3
+                        elif word.lower() in self.sentenceconstructors:
+                            similarity += length  # Add 2 to the similarity for words with capital letters
+                        else:
+                            similarity += length*2
+
+                response_words = self.tokenize(response)
+                input_words = self.tokenize(input_string)
+
+                for word in response_words:
+                    Count += self.measure_letters(word)
+
+                for word in input_words:
+                    InputCount += self.measure_letters(word)
+
+                distance = Count + InputCount / 2
+
+                if Count > InputCount:
+                    distance = Count - InputCount
+                else:
+                    distance = InputCount - Count
+
+                similarity_percentage = similarity / len(overall_word_list)  # Calculate average similarity
+
+                if similarity > highest_similarity:
+                    highest_similarity = similarity
+                    most_similar_response = response
+
+
+                if most_similar_response:
+                    return most_similar_response
+                else:
+                    highest_similarity = 0
+                    responses = []
+                    randoresponses = []
+
+                    for response in intent_class["responses"]:
+                        responses.append(response)
+
+                    for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
+                        choice = random.choice(responses)
+                        randoresponses.append(choice)
+
+                    most_similar_response = random.choice(randoresponses)
+
+                    return most_similar_response
 
     def stem(self, input_word):
         suffixes = ["ing", "ly", "ed", "es", "'s", "er", "est", "y", "ily", "able", "ful", "ness", "less", "ment", "ive", "ize", "ous"]
@@ -246,12 +241,41 @@ class IntentMatcher:
     # Experimental Development Zone
 
     def SynonymCompare(self, word):
-        newword = None
         thesaurus = self.load_thesaurus()
         for synonym in thesaurus[word]["synonyms"]:
             random_newword = random.choice(thesaurus[word]["synonyms"])
 
         return random_newword
+
+    def legacy_generate_sentence(self, words):
+        sentence = ' '.join(words)
+#        sentence = sentence.capitalize()
+        if sentence[-1] not in '.!?':
+            sentence =+ random.choice('.!?')
+        return sentence
+
+    def LegacyResponseGenerator(self, most_similar_response):
+        new_sentence = []
+        deletion = string.punctuation
+        most_similar_response_splitted = most_similar_response.split()
+        self.thesaurus = self.load_thesaurus()
+        for word in most_similar_response_splitted:
+            if word in self.thesaurus:
+                synonyms = self.thesaurus[word]["synonyms"]
+                new_word = random.choice(synonyms)
+                new_sentence.append(new_word)
+            else:
+                new_sentence.append(word)
+
+        generated_response = self.generate_sentence(new_sentence)
+
+        initial_response = []
+
+        for i in most_similar_response:
+            initial_response.append(i)
+
+        return generated_response
+
 
     def ResponseGenerator(self, most_similar_response):
 
