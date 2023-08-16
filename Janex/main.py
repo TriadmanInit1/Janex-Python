@@ -25,20 +25,28 @@ class IntentMatcher:
 
 
     def tokenize(self, input_string):
-        new_string = ""
+        try:
+            new_string = ""
 
-        deletion = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+            deletion = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 
-        input_string = input_string.lower()
+            input_string = input_string.lower()
 
-        for x in input_string:
-            if x not in deletion:
-                new_string += x
+            for x in input_string:
+                if x not in deletion:
+                    new_string += x
 
-        processed_string = new_string
-        words = processed_string.split(" ")
+            words = []
 
-        return words
+            processed_string = new_string
+            words = processed_string.split(" ")
+
+            return words
+        except:
+            words = []
+            word = "I didn't understand"
+            words = word.split(" ")
+            return words
 
     def tokenize_list(self, input_list):
         token_words = []
@@ -385,3 +393,15 @@ class IntentMatcher:
 #        print(letters_in_order)
 
         return letters_in_order
+
+    def encode_string_to_numbers(self, input_string):
+        encoded_numbers = []
+        for char in input_string:
+            encoded_numbers.append(ord(char))  # Get the ASCII value of the character
+        return encoded_numbers
+
+    def decode_numbers_to_string(self, encoded_numbers):
+        decoded_string = ""
+        for num in encoded_numbers:
+            decoded_string += chr(num)  # Convert the ASCII value back to a character
+        return decoded_string
