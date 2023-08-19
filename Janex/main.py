@@ -106,6 +106,11 @@ class IntentMatcher:
                         else:
                             length = self.measure_letters(word)
                             similarity =+ length*2
+                    try:
+                        word_list.remove(word)
+                        word_list_2.remove(word)
+                    except:
+                        pass
 
                 if similarity > highest_similarity:
                     similarity_percentage = similarity / (len(overall_word_list) + len(word_list_2))
@@ -179,6 +184,12 @@ class IntentMatcher:
                         else:
                             similarity += length*2
 
+                    try:
+                        word_list.remove(word)
+                        word_list_2.remove(word)
+                    except:
+                        pass
+
                 response_words = self.tokenize(response)
                 input_words = self.tokenize(input_string)
 
@@ -212,7 +223,7 @@ class IntentMatcher:
                     for response in intent_class["responses"]:
                         responses.append(response)
 
-                    for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
+                    for i in range(1, 10):
                         choice = random.choice(responses)
                         randoresponses.append(choice)
 
