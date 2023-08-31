@@ -1,15 +1,18 @@
-from main import *
+from intentclassifier import *
+import random
 
-intents_file_path = "./intents.json"
-thesaurus_file_path = "./thesaurus.json"
+Classifier = IntentClassifier()
 
-matcher = IntentMatcher(intents_file_path, thesaurus_file_path)
+Classifier.set_intentsfp("intents.json")
+Classifier.set_vectorsfp("vectors.json")
+Classifier.set_dimensions(300)
 
-input_string = input("You: ")
+Classifier.train_vectors()
 
-intent_class, percentage = matcher.pattern_compare(input_string)
-response = matcher.response_compare(input_string, intent_class)
+Input = input("You: ")
 
-response = matcher.ResponseGenerator(response)
+classification = Classifier.classify(Input)
+
+response = random.choice(classification["responses"])
 
 print(response)

@@ -1,115 +1,84 @@
 # Janex
-A free open-source framework which can be used to build Machine Learning tools, LLMs, and Natural Language Processing scripts with full simplicity.
 
-<h2> What is the purpose of Janex? </h2>
+Janex-Python is a library which can be used to create Natural Language Processing-based programs and other forms of Artificial Intelligence.
 
-Monopolistic companies are confining their Artificial Intelligence research to themselves, and capitalising on it. Even companies that swore to open source their software (OpenAI) went back on their morals, with the releases of GPT-3+, as did other powerful businesses.
+It is part of the Janex eco-system which is designed for developers to use in their own projects for free, licensed under the Free Lily License.
 
-Released under the **new** Free Lily License 1.0, Janex will improve and become a useful tool for users to conduct their own research in the potential of Artifical Intelligence.
+As of update 0.0.80, the entire infrastructure of how this code works has been modified intensely.
 
-If you want to use a more heavyweight but more accurate version of Janex, I would recommend using Janex: PyTorch Edition, which uses Neural Network techniques from PyTorch and NLTK to enhance the prediction accuracy.
-```
-https://pypi.org/project/JanexPT/0.0.1/#files
-```
+### How to use
 
-<h3> How to use </h3>
+First, install Janex using pip.
 
-<h5> Adding to your project </h5>
-
-Firstly, you'll need to install the library using the Python pip package manager.
-
-```
+```bash
 python3 -m pip install Janex
-
 ```
-Secondly, you need to import the library into your Python script.
-
-```
+Next, import it into your code
+```python
 from Janex import *
 ```
 
-<h4>Using Janex in your code</h4>
+### Intent classifier
 
-<h5>Create an instance</h5>
+To use the pre-built intent classifier included with the package, you need to create an instance of it and then set the intents, vectors and dimensions.
 
-Before anything else, you need to create an instance of the IntentMatcher class. (If you do not have one made already, the program will automatically download a pre-written file created by @SoapDoesCode - big thanks to her for their intents file!)
+```python
 
-```
-intents_file_path = "./intents.json"
+from janex.intentclassifier import *
 
-thesaurus_file_path = "./thesaurus.json"
+Classifier = IntentClassifier()
 
-matcher = IntentMatcher(intents_file_path, thesaurus_file_path)
-```
+Classifier.set_intentsfp("intents.json")
+Classifier.set_vectorsfp("vectors.json")
+Classifier.set_dimensions(300)
 
-Optional: If you would like to update your thesaurus to your most recent pre-written file, then you can add this code to check for new versions and to download them. Be careful though, this function removes your thesaurus file, which means any unsaved data which doesn't exist on the pre-written file will be erased. (But could possibly be restored in your bin directory)
-
-```
-matcher.update_thesaurus()
+Classifier.train_vectors()
 ```
 
-<h5>Tokenizing:</h5>
+You can then determine the class of which a certain variable belongs in using the Classifier.claffy() function.
 
-To utilise the tokenizer feature, here is an example of how it can be used.
+```python
+Input = input("You: ")
 
-```
-input_string = "Hello! What is your name?"
+classification = Classifier.classify(Input)
 
-words = matcher.Tokenize(input_string)
+response = random.choice(classification["responses"])
 
-print(words)
-```
-
-<h5>Intent classifying:</h5>
-
-To compare the input with the patterns from your intents.json storage file, you have to declare the intents file path.
-
-```
-intent_class, similarity = matcher.pattern_compare(input_string)
-
-print(intent_class)
+print(response)
 ```
 
-<h5>Response similarity:</h5>
+### Data experimentation with vectors
 
-Sometimes a list of responses in a class can become varied in terms of context, and so in order to get the best possible response, we can use the 'responsecompare' function to compare the input string with your list of responses.
+If you would like to tokenize, stem or otherwise preprocess data, the Janex library comes with some pre-made tools.
+
+To tokenize:
+```python
+from Janex.word_manipulation import *
+
+string = "Hello. My name is Brendon."
+
+tokens = tokenize(string)
+
+print(tokens)
+```
+To vectorize:
+```python
+from Janex.vectortoolkit import *
+
+input_string = "Hello, my name is Sheila."
+
+vectors = string_vectorize(input_string)
+
+vectors = reshape_array_dimensions(vectors, 300) # To reshape the vector array
+
+secondstring = "Hello, my name is Robert."
+
+second_vectors = string_vectorize(secondstring)
+
+second_vectors = reshape_array_dimensions(second_vectors, 300)
+
+similarity = calculate_cosine_similarity(vectors, second_vectors)
+
+print(similarity)
 
 ```
-BestResponse = matcher.response_compare(input_string, intent_class)
-
-print(BestResponse)
-```
-
-<h5>Text Generation:</h5>
-
-In experimental phase but included in 0.0.15 and above, the 'ResponseGenerator' function can absorb the response chosen by your response comparer from your intents.json file, and then modify it, replacing words with synonyms, to give it a more unscripted response.
-
-For this to be used, if you haven't got a thesaurus.json file already, the IntentMatcher will automatically download the pre-written example directly from Github and into your chatbot folder.
-
-After doing so, you may include the feature in your code like this.
-
-```
-generated_response = matcher.ResponseGenerator(BestResponse)
-
-print(generated_response)
-```
-
-Warning: This feature is still work-in-progress, and will only be as effective per the size of your thesaurus file, so don't expect it to be fully stable until I have fully completed it. :)
-
-<h3> Contributors </h3>
-
-Many thanks to these Github developers for their contributions! :)
-
-@Ethan-Barr
-@SoapDoesCode
-
-<h3> Functionality </h3>
-
-<h4>Version 0.0.17</h4>
-
-- Word tokenizer ✓
-- Intent classifier ✓
-- Word Stemmer ✓
-- Support for Darwin, Linux (GNU) and Windows ✓
-- Custom Response Generator (development stage) ✓
-- Automatic intents & thesaurus builders ✓

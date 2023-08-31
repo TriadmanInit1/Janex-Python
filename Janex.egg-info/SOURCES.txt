@@ -3,11 +3,12 @@ README.md
 setup.py
 Janex/__init__.py
 Janex/chat.py
+Janex/intentclassifier.py
 Janex/main.py
+Janex/vectortoolkit.py
+Janex/word_manipulation.py
 Janex.egg-info/PKG-INFO
 Janex.egg-info/SOURCES.txt
 Janex.egg-info/dependency_links.txt
 Janex.egg-info/requires.txt
 Janex.egg-info/top_level.txt
-Janex/JanexSub/JanexSub.py
-Janex/JanexSub/__init__.py
