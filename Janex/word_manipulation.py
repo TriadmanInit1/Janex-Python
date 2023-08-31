@@ -16,3 +16,11 @@ def tokenize(input_string):
     words = processed_string.split(" ")
 
     return words
+
+def stem(input_word):
+    suffixes = ["ing", "ly", "ed", "es", "'s", "er", "est", "y", "ily", "able", "ful", "ness", "less", "ment", "ive", "ize", "ous"]
+    for suffix in suffixes:
+        if input_word.endswith(suffix):
+            input_word = input_word[:-len(suffix)]
+            break
+    return input_word
